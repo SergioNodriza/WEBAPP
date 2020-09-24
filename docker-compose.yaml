@@ -1,0 +1,57 @@
+version: '3'
+services:
+
+  #PHP Service
+  app:
+    build:
+      context: .docker/php/
+      dockerfile: Dockerfile
+    image: digitalocean.com/php
+    container_name: app
+    restart: unless-stopped
+    tty: true
+    env_file: .env
+    working_dir: /var/www
+    networks:
+      - app-network
+    volumes:
+      - ./app:/var/www
+      - .docker/php/local.ini:/usr/local/etc/php/conf.d/local.ini
+
+  #Nginx Service
+  webserver:
+    build:
+      context: .docker/nginx/
+      dockerfile: Dockerfile
+    container_name: webserver
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "8080:80"
+      - "8443:443"
+    networks:
+      - app-network
+    volumes:
+      - ./app:/var/www
+      - .docker/nginx/log:/var/log/nginx
+
+  #MySQL Service
+  db:
+    image: mysql:5.7.22
+    container_name: db
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "33061:3306"
+    env_file: .env
+    networks:
+      - app-network
+    volumes:
+      - .docker/mysql/data:/var/lib/mysql/
+      - .docker/mysql/my.cnf:/etc/mysql/my.cnf
+    
+
+#Docker Networks
+networks:
+  app-network:
+    driver: bridge

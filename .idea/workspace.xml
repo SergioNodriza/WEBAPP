@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="7c9ec338-3923-4984-8035-95d980100dea" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP" />
+  <component name="ProjectId" id="1hu1ExKHkt0Muk2JkORD4YN34kT" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="database.data.extractors.current.export.id" value="Comma-separated (CSV)_id" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Documentos/Blog" />
+    <property name="settings.editor.selected.configurable" value="project.propDebugger" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7c9ec338-3923-4984-8035-95d980100dea" name="Default Changelist" comment="" />
+      <created>1600846054659</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1600846054659</updated>
+      <workItem from="1600846055703" duration="9196000" />
+      <workItem from="1600927073867" duration="371000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="605" y="1185" width="699" height="904" key="#PHP" timestamp="1600927204336">
+      <screen x="0" y="1080" width="1920" height="1080" />
+    </state>
+    <state x="605" y="1185" width="699" height="904" key="#PHP/0.1080.1920.1080/72.0.1848.1080@0.1080.1920.1080" timestamp="1600927204336" />
+    <state x="210" y="1479" width="1490" height="315" key="#SQL_Dialects" timestamp="1600854766827">
+      <screen x="0" y="1080" width="1920" height="1080" />
+    </state>
+    <state x="210" y="1479" width="1490" height="315" key="#SQL_Dialects/0.1080.1920.1080/72.0.1848.1080@0.1080.1920.1080" timestamp="1600854766827" />
+    <state x="539" y="1281" width="800" height="684" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1600849107794">
+      <screen x="0" y="1080" width="1920" height="1080" />
+    </state>
+    <state x="539" y="1281" width="800" height="684" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.1080.1920.1080/72.0.1848.1080@0.1080.1920.1080" timestamp="1600849107794" />
+    <state x="591" y="201" width="800" height="684" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.1080.1920.1080/72.0.1848.1080@72.0.1848.1080" timestamp="1600846239910" />
+    <state x="668" y="1425" width="574" height="424" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1600854674711">
+      <screen x="0" y="1080" width="1920" height="1080" />
+    </state>
+    <state x="668" y="1425" width="574" height="424" key="#com.intellij.fileTypes.FileTypeChooser/0.1080.1920.1080/72.0.1848.1080@0.1080.1920.1080" timestamp="1600854674711" />
+    <state x="693" y="1382" width="524" height="510" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1600851447358">
+      <screen x="0" y="1080" width="1920" height="1080" />
+    </state>
+    <state x="693" y="1382" width="524" height="510" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.1080.1920.1080/72.0.1848.1080@0.1080.1920.1080" timestamp="1600851447358" />
+    <state x="743" y="1391" width="416" height="498" key="FileChooserDialogImpl" timestamp="1600851342974">
+      <screen x="0" y="1080" width="1920" height="1080" />
+    </state>
+    <state x="743" y="1391" width="416" height="498" key="FileChooserDialogImpl/0.1080.1920.1080/72.0.1848.1080@0.1080.1920.1080" timestamp="1600851342974" />
+    <state x="753" y="1554" width="404" height="165" key="NewPhpFileDialog" timestamp="1600854738330">
+      <screen x="0" y="1080" width="1920" height="1080" />
+    </state>
+    <state x="753" y="1554" width="404" height="165" key="NewPhpFileDialog/0.1080.1920.1080/72.0.1848.1080@0.1080.1920.1080" timestamp="1600854738330" />
+    <state x="441" y="1268" width="1037" height="737" key="SettingsEditor" timestamp="1600855250074">
+      <screen x="0" y="1080" width="1920" height="1080" />
+    </state>
+    <state x="441" y="1268" width="1037" height="737" key="SettingsEditor/0.1080.1920.1080/72.0.1848.1080@0.1080.1920.1080" timestamp="1600855250074" />
+    <state x="892" y="417" width="197" height="252" key="com.intellij.database.actions.DdlActions$CreateObject$1" timestamp="1600846281244">
+      <screen x="72" y="0" width="1848" height="1080" />
+    </state>
+    <state x="892" y="417" width="197" height="252" key="com.intellij.database.actions.DdlActions$CreateObject$1/0.1080.1920.1080/72.0.1848.1080@72.0.1848.1080" timestamp="1600846281244" />
+    <state x="229" y="1383" width="925" height="603" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1600846898722">
+      <screen x="0" y="1080" width="1920" height="1080" />
+    </state>
+    <state x="229" y="1383" width="925" height="603" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.1080.1920.1080/72.0.1848.1080@0.1080.1920.1080" timestamp="1600846898722" />
+    <state x="656" y="325" width="959" height="533" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.1080.1920.1080/72.0.1848.1080@72.0.1848.1080" timestamp="1600846312952" />
+    <state x="624" y="792" key="run.anything.popup" timestamp="1600853029481">
+      <screen x="72" y="0" width="1848" height="1080" />
+    </state>
+    <state x="624" y="792" key="run.anything.popup/0.1080.1920.1080/72.0.1848.1080@0.1080.1920.1080" timestamp="1600853029481" />
+  </component>
+</project>

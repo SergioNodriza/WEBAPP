@@ -32,6 +32,9 @@
         ?>
 
     </table>
+
+    <p><a href="add-item.php">Nuevo Item</a></p>
+
 </div>
 
 </body>

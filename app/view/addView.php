@@ -18,8 +18,8 @@
     if ($error == true) {
         echo "<p>Ha ocurrido un error</p>";
     }
-    if ($resul != "") {
-        echo "<p>$resul</p>";
+    if ($resul2 != "") {
+        echo "<p>$resul2</p>";
     }
     ?>
 

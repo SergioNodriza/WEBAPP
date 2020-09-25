@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 try {
 
@@ -10,8 +11,11 @@ try {
 
     $conexion = new PDO(sprintf('mysql:host=%s;dbname=%s;port=%d', $host, $database, $port), $user, $pass);
 
-    $statement = $conexion->prepare("SELECT * FROM todo_item ORDER BY done, created_at");
-    $statement->execute();
+    $statement = $conexion->prepare("SELECT * FROM todo_item WHERE fkUser = (SELECT id FROM user 
+                                                WHERE username = :nombreUsu) ORDER BY done, created_at");
+    $statement->execute(array(
+        ':nombreUsu' => $_SESSION['nombre']
+    ));
 
     $resultados = $statement->fetchAll();
 

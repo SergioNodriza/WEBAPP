@@ -23,7 +23,8 @@
             echo $resultados[$i]["title"];
             echo "</td>";
             echo "<td>";
-            echo $resultados[$i]["done"];
+            if ($resultados[$i]["done"] == 0){echo "No";}
+            else {echo "Si";}
             echo "</td>";
             echo "<td>";
             echo $resultados[$i]["created_at"];

@@ -1,7 +1,15 @@
 <?php
 session_start();
 require '../lib/Connection.php';
-require '../view/publicar.php';
+
+if (isset($_SESSION['nombre'])){
+    require '../view/list-itemsView.php';
+}
+
+else {
+    require '../view/header.php';
+}
+
 
 
 

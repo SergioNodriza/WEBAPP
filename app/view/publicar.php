@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Select</title>
+    <title>Publicar</title>
 </head>
 <body>
 

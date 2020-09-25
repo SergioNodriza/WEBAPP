@@ -11,7 +11,12 @@
         else {echo "No hay sesión iniciada";}
         ?>
     </h3>
-    <input type="button" onclick="location.href='login.php'" value="Log in">
+    <input type="button" onclick="location.href=
+    '<?php
+    if(isset($_SESSION['nombre'])){echo "index.php";}
+    else {echo "login.php";}
+    ?>'
+    " value="Log in">
     <br>
     <input type="button" onclick="location.href='cerrar.php'" value="Log Out">
 

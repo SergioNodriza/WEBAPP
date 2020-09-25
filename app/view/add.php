@@ -1,10 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Añadir</title>
-</head>
-<body>
+<?php require 'header.php'; ?>
 
 <br><br><br><br><br><br><br><br><br>
 

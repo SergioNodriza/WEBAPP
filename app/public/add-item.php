@@ -1,6 +1,10 @@
 <?php
-
+session_start();
 require '../lib/Connection.php';
+if (!$_SESSION || !$conexion) {
+    header('Location: error.php');
+}
+
 $error = false;
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {

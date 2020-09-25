@@ -1,10 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Publicar</title>
-</head>
-<body>
+<?php require 'header.php'; ?>
 
 <br><br><br><br><br><br><br><br><br>
 
@@ -22,10 +16,18 @@
         $i = 0;
         while ($i < count($resultados)) {
             echo "<tr>";
-            echo "<td>"; echo $resultados[$i]["id"]; echo "</td>";
-            echo "<td>"; echo $resultados[$i]["title"]; echo "</td>";
-            echo "<td>"; echo $resultados[$i]["done"]; echo "</td>";
-            echo "<td>"; echo $resultados[$i]["created_at"]; echo "</td>";
+            echo "<td>";
+            echo $resultados[$i]["id"];
+            echo "</td>";
+            echo "<td>";
+            echo $resultados[$i]["title"];
+            echo "</td>";
+            echo "<td>";
+            echo $resultados[$i]["done"];
+            echo "</td>";
+            echo "<td>";
+            echo $resultados[$i]["created_at"];
+            echo "</td>";
             echo "</tr>";
             $i++;
         }

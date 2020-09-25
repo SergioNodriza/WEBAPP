@@ -1,5 +1,4 @@
 .env
 .env.dev
-.docker/
 .docker/mysql/data
 .idea/

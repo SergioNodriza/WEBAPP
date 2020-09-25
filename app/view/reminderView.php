@@ -2,16 +2,13 @@
 
 <div align="center">
 
-    <h2>Registrar Usuario</h2>
+    <h2>Recordar Contraseña</h2>
 
-    <form action="register.php" method="post">
+    <form action="reminder.php" method="post">
         <input type="text" name="usuario" placeholder="Usuario">
-        <input type="password" name="password" placeholder="Contraseña">
-        <input type="password" name="password2" placeholder="Repetir Contraseña">
-        <input type="submit" value="Registrar">
+        <input type="submit" value="Enviar Correo">
 
         <?php
-
         if ($error != "") {
             echo "<p>$error</p>";
         }

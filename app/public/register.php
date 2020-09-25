@@ -9,13 +9,18 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $passw = $_POST['password'];
     $passw2 = $_POST['password2'];
 
-    $statement = $conexion->prepare('SELECT username FROM user WHERE username = :usuario');
-    $statement->execute(array(
-        ':usuario' => $usuario
-    ));
-    $validez = $statement->fetch();
-    if ($validez != false) {
-        $error = "El usuario ya existe";
+    if ($usuario !== "") {
+        $statement = $conexion->prepare('SELECT username FROM user WHERE username = :usuario');
+        $statement->execute(array(
+            ':usuario' => $usuario
+        ));
+        $validez = $statement->fetch();
+
+        if ($validez != false) {
+            $error = "El usuario ya existe";
+        }
+    } else {
+        $error = "Error de Usuario";
     }
 
     if ($passw !== $passw2) {

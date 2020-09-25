@@ -7,12 +7,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $usuario = limpiarDatos($_POST['usuario']);
     $passw = $_POST['password']; //hash('md5', $_POST['password']);
-    $error = "";
 
     $statement = $conexion->prepare('SELECT username, contra FROM user WHERE username=:usuario and contra=:passw');
     $statement->execute(array(
         ':usuario' => $usuario,
-        ':passw' => $passw,
+        ':passw' => $passw
     ));
 
     $resultado = $statement->fetch();
@@ -29,6 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         $_SESSION['nombre'] = $usuario;
         header('Location: index.php');
+
     } else {
         $error = "Error al iniciar Sesión";
     }

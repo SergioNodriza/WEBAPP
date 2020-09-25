@@ -15,8 +15,11 @@
         }
         ?>
 
-        <h4><a href="register.php">¿No tienes cuenta?</a></h4>
-        <h4><a href="list-items.php">Volver</a></h4>
+        <br><br><br>
+        <input type="button" onclick="location.href='register.php'" value="¿No tienes cuenta?">
+        <input type="button" onclick="location.href='list-items.php'" value="Volver">
+        <input type="button" onclick="location.href='reminder.php'" value="¿Contraseña Olvidada?">
+
     </form>
 
 </div>

@@ -36,7 +36,8 @@
 
     </table>
 
-    <p><a href="add-item.php">Nuevo Item</a></p>
+    <br>
+    <input type="button" onclick="location.href='add-item.php'" value="Añadir Item">
 
 </div>
 

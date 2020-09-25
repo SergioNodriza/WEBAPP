@@ -2,6 +2,7 @@
 <project version="4">
   <component name="SqlDialectMappings">
     <file url="file://$PROJECT_DIR$/app/lib/Connection.php" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/app/public/add-item.php" dialect="GenericSQL" />
     <file url="file://$PROJECT_DIR$/app/public/list-items.php" dialect="GenericSQL" />
     <file url="file://$PROJECT_DIR$/migrations/01-create_todo.sql" dialect="GenericSQL" />
     <file url="file://$PROJECT_DIR$/migrations/02-populate_todo.sql" dialect="GenericSQL" />

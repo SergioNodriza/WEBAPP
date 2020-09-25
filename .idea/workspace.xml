@@ -1,7 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="7c9ec338-3923-4984-8035-95d980100dea" name="Default Changelist" comment="" />
+    <list default="true" id="7c9ec338-3923-4984-8035-95d980100dea" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.docker/mysql/data/auto.cnf" beforeDir="false" afterPath="$PROJECT_DIR$/.docker/mysql/data/auto.cnf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.docker/mysql/data/ca-key.pem" beforeDir="false" afterPath="$PROJECT_DIR$/.docker/mysql/data/ca-key.pem" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.docker/mysql/data/client-key.pem" beforeDir="false" afterPath="$PROJECT_DIR$/.docker/mysql/data/client-key.pem" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.docker/mysql/data/general.log" beforeDir="false" afterPath="$PROJECT_DIR$/.docker/mysql/data/general.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.docker/mysql/data/ib_buffer_pool" beforeDir="false" afterPath="$PROJECT_DIR$/.docker/mysql/data/ib_buffer_pool" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.docker/mysql/data/ib_logfile0" beforeDir="false" afterPath="$PROJECT_DIR$/.docker/mysql/data/ib_logfile0" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.docker/mysql/data/ib_logfile1" beforeDir="false" afterPath="$PROJECT_DIR$/.docker/mysql/data/ib_logfile1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.docker/mysql/data/ibdata1" beforeDir="false" afterPath="$PROJECT_DIR$/.docker/mysql/data/ibdata1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.docker/mysql/data/ibtmp1" beforeDir="false" afterPath="$PROJECT_DIR$/.docker/mysql/data/ibtmp1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.docker/mysql/data/private_key.pem" beforeDir="false" afterPath="$PROJECT_DIR$/.docker/mysql/data/private_key.pem" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.docker/mysql/data/server-key.pem" beforeDir="false" afterPath="$PROJECT_DIR$/.docker/mysql/data/server-key.pem" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.docker/nginx/log/access.log" beforeDir="false" afterPath="$PROJECT_DIR$/.docker/nginx/log/access.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/add-item.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/public/add-item.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/view/add.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/view/add.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/view/publicar.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/view/publicar.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -17,6 +53,9 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP" />
   <component name="ProjectId" id="1hu1ExKHkt0Muk2JkORD4YN34kT" />
   <component name="ProjectViewState">
@@ -29,9 +68,9 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="database.data.extractors.current.export.id" value="Comma-separated (CSV)_id" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Documentos/Blog" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="project.propDebugger" />
+    <property name="settings.editor.selected.configurable" value="Errors" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -49,12 +88,26 @@
       <option name="presentableId" value="Default" />
       <updated>1600846054659</updated>
       <workItem from="1600846055703" duration="9196000" />
-      <workItem from="1600927073867" duration="13544000" />
+      <workItem from="1600927073867" duration="14116000" />
+      <workItem from="1600941748107" duration="3000" />
+      <workItem from="1601013201941" duration="1794000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="748" y="353" width="485" height="381" key="#New_Docker_Connection" timestamp="1600934777478">
@@ -65,10 +118,10 @@
       <screen x="0" y="1080" width="1920" height="1080" />
     </state>
     <state x="605" y="1185" width="699" height="904" key="#PHP/0.1080.1920.1080/72.0.1848.1080@0.1080.1920.1080" timestamp="1600927204336" />
-    <state x="210" y="1479" width="1490" height="315" key="#SQL_Dialects" timestamp="1600854766827">
+    <state x="210" y="1479" width="1490" height="315" key="#SQL_Dialects" timestamp="1601015945393">
       <screen x="0" y="1080" width="1920" height="1080" />
     </state>
-    <state x="210" y="1479" width="1490" height="315" key="#SQL_Dialects/0.1080.1920.1080/72.0.1848.1080@0.1080.1920.1080" timestamp="1600854766827" />
+    <state x="210" y="1479" width="1490" height="315" key="#SQL_Dialects/0.1080.1920.1080/72.0.1848.1080@0.1080.1920.1080" timestamp="1601015945393" />
     <state x="539" y="1281" width="800" height="684" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1600849107794">
       <screen x="0" y="1080" width="1920" height="1080" />
     </state>
@@ -90,10 +143,10 @@
       <screen x="0" y="1080" width="1920" height="1080" />
     </state>
     <state x="753" y="1554" width="404" height="165" key="NewPhpFileDialog/0.1080.1920.1080/72.0.1848.1080@0.1080.1920.1080" timestamp="1600936252326" />
-    <state x="496" y="188" width="1037" height="737" key="SettingsEditor" timestamp="1600934296469">
-      <screen x="72" y="0" width="1848" height="1080" />
+    <state x="441" y="1268" width="1037" height="737" key="SettingsEditor" timestamp="1601015643093">
+      <screen x="0" y="1080" width="1920" height="1080" />
     </state>
-    <state x="441" y="1268" width="1037" height="737" key="SettingsEditor/0.1080.1920.1080/72.0.1848.1080@0.1080.1920.1080" timestamp="1600855250074" />
+    <state x="441" y="1268" width="1037" height="737" key="SettingsEditor/0.1080.1920.1080/72.0.1848.1080@0.1080.1920.1080" timestamp="1601015643093" />
     <state x="496" y="188" width="1037" height="737" key="SettingsEditor/0.1080.1920.1080/72.0.1848.1080@72.0.1848.1080" timestamp="1600934296469" />
     <state x="892" y="417" width="197" height="252" key="com.intellij.database.actions.DdlActions$CreateObject$1" timestamp="1600846281244">
       <screen x="72" y="0" width="1848" height="1080" />

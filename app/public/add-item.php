@@ -7,7 +7,7 @@
 
         $title = limpiarDatos($_POST['title']);
         if($_POST['done'] === "on"){$done = 1;}
-        else {$done = 0;};
+        else {$done = 0;}
         $created_at = limpiarDatos($_POST['created_at']);
 
         if ($title === "" || $created_at === "") {

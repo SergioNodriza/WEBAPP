@@ -17,7 +17,6 @@
 
         <br><br><br>
         <input type="button" onclick="location.href='register.php'" value="¿No tienes cuenta?">
-        <input type="button" onclick="location.href='list-items.php'" value="Volver">
         <input type="button" onclick="location.href='reminder.php'" value="¿Contraseña Olvidada?">
 
     </form>

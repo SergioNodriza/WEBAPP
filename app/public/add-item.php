@@ -1,6 +1,10 @@
 <?php
 session_start();
+
 require '../lib/Connection.php';
+$conexion = conectar();
+
+
 if (!$_SESSION || !$conexion) {
     header('Location: error.php');
 }

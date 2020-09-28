@@ -2,6 +2,8 @@
 
 require '../lib/Connection.php';
 
+$conexion = conectar();
+
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $usuario = limpiarDatos($_POST['usuario']);
 
@@ -21,14 +23,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
             mail('sergio.gomez@nodrizatech.com', 'Contraseña Renovada', '$mensaje');
 
-
-
-     /*       $statement2 = $conexion->prepare('UPDATE user SET contra = :newpass where username = :usuario');
-            $statement2->execute(array(
-                ':newpass' => $newpass,
-                ':usuario' => $usuario
-            ));
-*/
             $error = "Correo Enviado";
         }
 

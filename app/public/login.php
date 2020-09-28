@@ -2,21 +2,21 @@
 
 session_start();
 require '../lib/Connection.php';
+$conexion = conectar();
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $usuario = limpiarDatos($_POST['usuario']);
-    $passw = $_POST['password']; //hash('md5', $_POST['password']);
+    $passw = $_POST['password'];
 
-    $statement = $conexion->prepare('SELECT username, contra FROM user WHERE username=:usuario and contra=:passw');
+    $statement = $conexion->prepare('SELECT * FROM user WHERE username=:usuario');
     $statement->execute(array(
         ':usuario' => $usuario,
-        ':passw' => $passw
     ));
 
     $resultado = $statement->fetch();
 
-    if ($resultado !== false) {
+    if ($resultado !== false && password_verify($passw, $resultado['contra'])){
 
         $fecha = date("yy" . "-" . "m" . "-" . "d" . " " . "h" . "-" . "i" . "-" . "s");
 

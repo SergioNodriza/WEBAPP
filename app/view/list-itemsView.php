@@ -13,6 +13,11 @@
 
         <?php
 
+        require '../lib/Connection.php';
+
+        $conexion = conectar();
+        $resultados = datos($conexion);
+
         $i = 0;
         while ($i < count($resultados)) {
             echo "<tr>";

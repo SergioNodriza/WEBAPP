@@ -1,3 +1,10 @@
 <?php
+session_start();
 
-header('Location: list-items.php');
+if (isset($_SESSION['nombre'])){
+    require '../view/list-itemsView.php';
+}
+
+else {
+    require '../view/loginView.php';
+}

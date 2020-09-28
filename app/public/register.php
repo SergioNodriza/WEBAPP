@@ -2,12 +2,14 @@
 
 session_start();
 require '../lib/Connection.php';
+$conexion = conectar();
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
     $usuario = limpiarDatos($_POST['usuario']);
     $passw = $_POST['password'];
     $passw2 = $_POST['password2'];
+    $cifrada= password_hash($_POST['password'], PASSWORD_DEFAULT);
 
     if ($usuario !== "") {
         $statement = $conexion->prepare('SELECT username FROM user WHERE username = :usuario');
@@ -38,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             ':usuario' => $usuario,
             ':created_at' => $fecha,
             ':lastlogin_at' => $fecha,
-            ':passw' => $passw
+            ':passw' => $cifrada
         ));
 
         $_SESSION['nombre'] = $usuario;

@@ -5,7 +5,7 @@ require '../lib/Connection.php';
 $conexion = conectar();
 
 
-if (!$_SESSION || !$conexion) {
+if (!$_SESSION) {
     header('Location: error.php');
 }
 

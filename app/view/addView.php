@@ -25,7 +25,7 @@
     ?>
 
     <br><br><br>
-    <input type="button" onclick="location.href='list-items.php'" value="Volver">
+    <input type="button" onclick="location.href='index.php?action=list-items'" value="Volver">
 
 </div>
 

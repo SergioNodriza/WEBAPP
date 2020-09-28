@@ -18,7 +18,7 @@
         ?>
 
         <br><br><br>
-        <input type="button" onclick="location.href='login.php'" value="Volver">
+        <input type="button" onclick="location.href='index.php?action=login'" value="Volver">
     </form>
 
 </div>

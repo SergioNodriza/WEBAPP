@@ -2,5 +2,11 @@
 
 session_start();
 
-require '../view/list-itemsView.php';
+if (isset($_SESSION['nombre'])) {
+    require '../view/list-itemsView.php';
+}
+
+else {
+    header('Location: index.php?action=error.php');
+}
 

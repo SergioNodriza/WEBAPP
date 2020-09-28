@@ -42,7 +42,7 @@
     </table>
 
     <br>
-    <input type="button" onclick="location.href='add-item.php'" value="Añadir Item">
+    <input type="button" onclick="location.href='index.php?action=add-item'" value="Añadir Item">
 
 </div>
 

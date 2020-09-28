@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 require '../lib/Connection.php';
 $conexion = conectar();
@@ -27,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         ));
 
         $_SESSION['nombre'] = $usuario;
-        header('Location: index.php');
+        header('Location: index.php?action=index');
 
     } else {
         $error = "Error al iniciar Sesión";

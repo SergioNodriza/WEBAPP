@@ -44,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         ));
 
         $_SESSION['nombre'] = $usuario;
-        header("Location: list-items.php");
+        header("Location: index.php?action=list-items");
     }
 
 }

@@ -6,7 +6,7 @@ $conexion = conectar();
 
 
 if (!$_SESSION) {
-    header('Location: error.php');
+    header('Location: index.php?action=error');
 }
 
 $error = false;

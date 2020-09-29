@@ -1,43 +1,32 @@
 <?php
-
+session_start();
 
 class añadir
 {
-    private $db;
 
-    public function __construct()
-    {
-        $this->db = conexion::conectar();
-    }
-    
-    public function añadirItem()
+    public function nuevoItem()
     {
 
-        $error = false;
+        $nombre = $_SESSION['nombre'];
+        $title = ['title'];
+        if ($_POST['done'] === "on") {
+            $done = 1;
+        } else {
+            $done = 0;
+        }
+        $created_at = ['created_at'];
 
-        if (!$_SESSION) {
-            header('Location: ../index.php');
+        if ($title === "" || $created_at === "") {
+            echo cargarView("../views/añadir.php");
+            echo "<p align='center'>Ha ocurrido un error</p>";
+        } else {
+
+            $resul1 = (new selects)->selectID($nombre);
+            $resul2 = (new selects)->insertItemsID($title, $done, $created_at, $resul1);
+            echo cargarView("../views/añadir.php");
+            echo "<p align='center'>$resul2</p>";
+
         }
 
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-
-            $nombre = $_SESSION['nombre'];
-            $title = limpiarDatos(['title']);
-            if ($_POST['done'] === "on") {
-                $done = 1;
-            } else {
-                $done = 0;
-            }
-            $created_at = limpiarDatos(['created_at']);
-
-            if ($title === "" || $created_at === "") {
-                $error = true;
-            } else {
-
-                $resul1 = selects::selectID($nombre);
-                $resul2 = selects::itemsID($title, $done, $created_at, $resul1);
-
-            }
-        }
     }
 }

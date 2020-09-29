@@ -12,7 +12,7 @@
         </tr>
 
         <?php
-            listar::listado();
+        (new listar)->listado();
         ?>
 
     </table>

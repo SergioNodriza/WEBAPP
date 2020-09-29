@@ -6,9 +6,7 @@
  */
 class selects
 {
-
-
-    private $db;
+    protected $db;
 
     public function __construct()
     {
@@ -18,20 +16,17 @@ class selects
 
     /**
      * @param $nombre
-     * @return Generator
+     * @return array
      */
     public function listarItems($nombre)
     {
-        $statement = conexion::conectar()->prepare("SELECT * FROM todo_item ");
+        $statement = $this->db->prepare("SELECT * FROM todo_item WHERE fkUser = (SELECT id FROM user 
+                                                WHERE username = :nombreUsu) ORDER BY done, created_at");
+        $statement->execute(array(
+            ':nombreUsu' => $nombre
+        ));
 
-       // $statement->bindValue(':nombreUsu',$nombre);
-
-        $statement->execute();
-
-        while($row = $statement->fetch()){
-            yield $row;
-        }
-
+        return $statement->fetchAll();
     }
 
     /**

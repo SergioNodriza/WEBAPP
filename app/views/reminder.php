@@ -4,12 +4,12 @@
 
     <h2>Recordar Contraseña</h2>
 
-    <form action="reminder.php" method="post">
+    <form action="index.php?action=reminder" method="post">
         <input type="text" name="usuario" placeholder="Usuario">
         <input type="submit" value="Enviar Correo">
 
         <br><br><br>
-        <input type="button" onclick="location.href='index.php?action=login'" value="Volver">
+        <input type="button" onclick="location.href='index.php?action=logIn'" value="Volver">
     </form>
 
 </div>

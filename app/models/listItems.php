@@ -4,7 +4,7 @@ session_start();
 /**
  * Class listar
  */
-class listar
+class listItems
 {
 
     public function listado()

@@ -6,33 +6,33 @@ require_once("../db/conexion.php");
 if ($_REQUEST['action']) {
     switch ($_REQUEST['action']) {
 
-        case "login":
+        case "logIn":
 
             if ($_SERVER['REQUEST_METHOD'] == 'POST')  {
-                require_once("../controllers/login.php");
+                require_once("../controllers/logIn.php");
                 doLog();
             }
             if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-                require_once("../controllers/login.php");
-                echo cargarView("../views/login.php");
+                require_once("../controllers/logIn.php");
+                echo cargarView("../views/logIn.php");
             }
             break;
 
-        case "cerrar":
-            require_once("../controllers/cerrar.php");
+        case "logOut":
+            require_once("../controllers/logOut.php");
             break;
 
-        case "list-items":
+        case "listItems":
             if (!$_SESSION) {
                 require_once("../controllers/error.php");
             } else {
-                require_once("../controllers/listar.php");
+                require_once("../controllers/listItems.php");
             }
             break;
 
-        case "add-item":
+        case "addItems":
             if ($_SERVER['REQUEST_METHOD'] == 'POST')  {
-                require_once("../controllers/añadir.php");
+                require_once("../controllers/addItems.php");
                 doAdd();
             }
             if ($_SERVER['REQUEST_METHOD'] == 'GET') {
@@ -40,32 +40,32 @@ if ($_REQUEST['action']) {
                 if (!$_SESSION) {
                     require_once("../controllers/error.php");
                 } else {
-                    require_once("../controllers/añadir.php");
-                    echo cargarView("../views/añadir.php");
+                    require_once("../controllers/addItems.php");
+                    echo cargarView("../views/addItems.php");
                 }
             }
             break;
 
         case "register":
             if($_SERVER["REQUEST_METHOD"] == "POST"){
-                require_once("../controllers/registrar.php");
+                require_once("../controllers/register.php");
                 doRegist();
             }
             if ($_SERVER["REQUEST_METHOD"] == "GET"){
-                require_once("../controllers/registrar.php");
-                echo cargarView("../views/registrar.php");
+                require_once("../controllers/register.php");
+                echo cargarView("../views/register.php");
             }
             break;
 
         case "reminder":
             if ($_SERVER["REQUEST_METHOD"] == "POST"){
-                require_once("../controllers/recordar.php");
+                require_once("../controllers/reminder.php");
                 doReminder();
             }
 
             if ($_SERVER["REQUEST_METHOD"] == "GET"){
-                require_once("../controllers/recordar.php");
-                echo cargarView("../views/recordar.php");
+                require_once("../controllers/reminder.php");
+                echo cargarView("../views/reminder.php");
             }
             break;
 
@@ -75,9 +75,9 @@ if ($_REQUEST['action']) {
     }
 
 } elseif (isset($_SESSION['nombre'])) {
-    require_once("../controllers/listar.php");
+    require_once("../controllers/listItems.php");
 } else {
-    require_once("../controllers/login.php");
-    echo cargarView("../views/login.php");
+    require_once("../controllers/logIn.php");
+    echo cargarView("../views/logIn.php");
 }
 

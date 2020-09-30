@@ -1,7 +1,7 @@
 <?php
 
 
-class recordar
+class reminder
 {
 
     public function remind()
@@ -27,7 +27,8 @@ class recordar
         }
 
         if (isset($error)) {
-            echo "<p>$error</p>";
+            echo cargarView("../views/reminder.php");
+            echo "<p align='center'>$error</p>";
         }
     }
 }

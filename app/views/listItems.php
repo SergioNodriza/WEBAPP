@@ -12,13 +12,13 @@
         </tr>
 
         <?php
-        (new listar)->listado();
+        (new listItems)->listado();
         ?>
 
     </table>
 
     <br>
-    <input type="button" onclick="location.href='index.php?action=add-item'" value="Añadir Item">
+    <input type="button" onclick="location.href='index.php?action=addItems'" value="Añadir Item">
 </div>
 
 </body>

@@ -1,14 +1,14 @@
 <?php
-require_once("../models/recordar.php");
-require_once("../models/helpLimpiar.php");
-require_once("../models/selects.php");
 
-function doReminder(){
+require_once("../models/addItems.php");
+require_once ("../models/selects.php");
+require_once ("../models/helpLimpiar.php");
 
-    $a = new recordar();
-    $a->remind();
+function doAdd(){
+
+    $a = new addItems();
+    $a->nuevoItem();
 }
-
 
 /**
  * @param $vista

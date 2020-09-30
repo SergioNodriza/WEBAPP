@@ -17,7 +17,7 @@
         ?>
     </h3>
 
-    <input type="button" onclick="location.href='index.php?action=cerrar'" value="Log Out">
+    <input type="button" onclick="location.href='index.php?action=logOut'" value="Log Out">
 
 </div>
 

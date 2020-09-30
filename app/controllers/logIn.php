@@ -1,11 +1,11 @@
 <?php
-require_once("../models/login.php");
+require_once("../models/logIn.php");
 require_once ("../models/helpLimpiar.php");
 require_once ("../models/selects.php");
 
 function doLog(){
 
-    $a = new login();
+    $a = new logIn();
     $a->logear();
 }
 

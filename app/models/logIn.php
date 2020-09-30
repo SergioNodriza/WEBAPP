@@ -4,7 +4,7 @@ session_start();
 /**
  * Class login
  */
-class login
+class logIn
 {
 
     public function logear()
@@ -21,12 +21,12 @@ class login
             (new selects)->actualizarLogin($fecha, $usuario);
 
             $_SESSION['nombre'] = $usuario;
-            header('Location: index.php?action=list-items');
+            header('Location: index.php?action=listItems');
         } else {
             $error = "Error al iniciar Sesión";
 
             if ($error != "") {
-                echo cargarView("../views/login.php");
+                echo cargarView("../views/logIn.php");
                 echo "<p align='center'>$error</p>";
             }
         }

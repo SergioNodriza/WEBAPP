@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-class añadir
+class addItems
 {
 
     public function nuevoItem()
@@ -17,13 +17,13 @@ class añadir
         $created_at = $_POST['created_at'];
 
         if ($title === "" || $created_at === ""){
-            echo cargarView("../views/añadir.php");
+            echo cargarView("../views/addItems.php");
             echo "<p align='center'>Ha ocurrido un error</p>";
         } else {
 
             $resul1 = (new selects)->selectID($nombre);
             $resul2 = (new selects)->insertItemsID($title, $done, $created_at, $resul1);
-            echo cargarView("../views/añadir.php");
+            echo cargarView("../views/addItems.php");
             echo "<p align='center'>$resul2</p>";
 
         }

@@ -1,7 +1,7 @@
 <?php
 
 
-class registrar
+class register
 {
 
     public function doRegist()
@@ -32,8 +32,11 @@ class registrar
             (new selects)->insertUser($usuario, $fecha, $cifrada);
 
             $_SESSION['nombre'] = $usuario;
-            header("Location: index.php?action=list-items");
+            header("Location: index.php?action=listItems");
 
+        } else {
+            echo cargarView("../views/register.php");
+            echo "<p align='center'>$error</p>";
         }
     }
 }

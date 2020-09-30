@@ -3,7 +3,7 @@
 /**
  * Class cerrar
  */
-class cerrar
+class logOut
 {
 
     public function cierre(){

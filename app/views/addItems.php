@@ -1,10 +1,10 @@
-<?php require 'header.php'; ?>
+<?php require 'cabecera.php'; ?>
 
 <br><br><br><br><br><br><br><br><br>
 
 <div align="center">
 
-    <form action="add-item.php" method="post">
+    <form action="index.php?action=add-item" method="post">
         <label for="title"></label>
         <input type="text" id="title" name="title" placeholder="Titulo">
         <label for="created_at"></label>
@@ -15,17 +15,8 @@
         <input type="submit" value="Nuevo Item">
     </form>
 
-    <?php
-    if ($error == true) {
-        echo "<p>Ha ocurrido un error</p>";
-    }
-    if ($resul2 != "") {
-        echo "<p>$resul2</p>";
-    }
-    ?>
-
     <br><br><br>
-    <input type="button" onclick="location.href='index.php?action=list-items'" value="Volver">
+    <input type="button" onclick="location.href='index.php?action=listItems'" value="Volver">
 
 </div>
 

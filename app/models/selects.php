@@ -18,7 +18,7 @@ class selects
      * @param $nombre
      * @return array
      */
-    public function listarItems($nombre)
+    public function listarItems($nombre)                                                   //selectID?
     {
         $statement = $this->db->prepare("SELECT * FROM todo_item WHERE fkUser = (SELECT id FROM user 
                                                 WHERE username = :nombreUsu) ORDER BY done, created_at");
@@ -62,6 +62,8 @@ class selects
             ':fkUser' => $resul1[0]
         ));
 
+        if ($done == 0){$done = "no";} else {$done = "si";}
+
         return "Se ha introducido el articulo con titulo " . $title . ", hecho " . $done .
             ", fecha " . $created_at . " y con id " . $resul1[0];
 
@@ -82,12 +84,32 @@ class selects
     }
 
 
+    /**
+     * @param $fecha
+     * @param $usuario
+     */
     public function actualizarLogin($fecha, $usuario)
     {
         $statement2 = $this->db->prepare('UPDATE user SET lastlogin_at = :hora where username = :usuario');
         $statement2->execute(array(
             ':hora' => $fecha,
             ':usuario' => $usuario
+        ));
+    }
+
+    /**
+     * @param $usuario
+     * @param $fecha
+     * @param $cifrada
+     */
+    public function insertUser($usuario, $fecha, $cifrada) {
+        $statement2 = $this->db->prepare('INSERT INTO user (id, username, created_at, lastlogin_at, contra) 
+                                                    VALUES (null, :usuario, :created_at, :lastlogin_at, :passw)');
+        $statement2->execute(array(
+            ':usuario' => $usuario,
+            ':created_at' => $fecha,
+            ':lastlogin_at' => $fecha,
+            ':passw' => $cifrada
         ));
     }
 }

@@ -62,7 +62,11 @@ class selects
             ':fkUser' => $resul1[0]
         ));
 
-        if ($done == 0){$done = "no";} else {$done = "si";}
+        if ($done == 0) {
+            $done = "no";
+        } else {
+            $done = "si";
+        }
 
         return "Se ha introducido el articulo con titulo " . $title . ", hecho " . $done .
             ", fecha " . $created_at . " y con id " . $resul1[0];
@@ -102,7 +106,8 @@ class selects
      * @param $fecha
      * @param $cifrada
      */
-    public function insertUser($usuario, $fecha, $cifrada) {
+    public function insertUser($usuario, $fecha, $cifrada)
+    {
         $statement2 = $this->db->prepare('INSERT INTO user (id, username, created_at, lastlogin_at, contra) 
                                                     VALUES (null, :usuario, :created_at, :lastlogin_at, :passw)');
         $statement2->execute(array(

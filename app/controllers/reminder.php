@@ -3,7 +3,8 @@ require_once("../models/reminder.php");
 require_once("../models/helpLimpiar.php");
 require_once("../models/selects.php");
 
-function doReminder(){
+function doReminder()
+{
 
     $a = new reminder();
     $a->remind();
@@ -14,7 +15,8 @@ function doReminder(){
  * @param $vista
  * @return false|string
  */
-function cargarView($vista){
+function cargarView($vista)
+{
     ob_start();
     include($vista);
     $output = ob_get_contents();

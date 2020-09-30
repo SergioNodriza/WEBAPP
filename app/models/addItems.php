@@ -16,7 +16,7 @@ class addItems
         }
         $created_at = $_POST['created_at'];
 
-        if ($title === "" || $created_at === ""){
+        if ($title === "" || $created_at === "") {
             echo cargarView("../views/addItems.php");
             echo "<p align='center'>Ha ocurrido un error</p>";
         } else {

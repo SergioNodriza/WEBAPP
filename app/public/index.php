@@ -8,7 +8,7 @@ if ($_REQUEST['action']) {
 
         case "logIn":
 
-            if ($_SERVER['REQUEST_METHOD'] == 'POST')  {
+            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 require_once("../controllers/logIn.php");
                 doLog();
             }
@@ -31,7 +31,7 @@ if ($_REQUEST['action']) {
             break;
 
         case "addItems":
-            if ($_SERVER['REQUEST_METHOD'] == 'POST')  {
+            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 require_once("../controllers/addItems.php");
                 doAdd();
             }
@@ -47,23 +47,23 @@ if ($_REQUEST['action']) {
             break;
 
         case "register":
-            if($_SERVER["REQUEST_METHOD"] == "POST"){
+            if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 require_once("../controllers/register.php");
                 doRegist();
             }
-            if ($_SERVER["REQUEST_METHOD"] == "GET"){
+            if ($_SERVER["REQUEST_METHOD"] == "GET") {
                 require_once("../controllers/register.php");
                 echo cargarView("../views/register.php");
             }
             break;
 
         case "reminder":
-            if ($_SERVER["REQUEST_METHOD"] == "POST"){
+            if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 require_once("../controllers/reminder.php");
                 doReminder();
             }
 
-            if ($_SERVER["REQUEST_METHOD"] == "GET"){
+            if ($_SERVER["REQUEST_METHOD"] == "GET") {
                 require_once("../controllers/reminder.php");
                 echo cargarView("../views/reminder.php");
             }

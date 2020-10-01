@@ -22,12 +22,7 @@ class mUser
             $_SESSION['nombre'] = $usuario;
             header('Location: index.php?action=listItems');
         } else {
-            $error = "Error al iniciar Sesión";
-
-            if ($error != "") {
-                echo $this->cargarView("../views/logIn.php");
-                echo "<p align='center'>$error</p>";
-            }
+                echo $this->cargarView("../views/users/logInError.php");
         }
 
     }
@@ -70,8 +65,7 @@ class mUser
             header("Location: index.php?action=listItems");
 
         } else {
-            echo $this->cargarView("../views/register.php");
-            echo "<p align='center'>$error</p>";
+            echo $this->cargarView("../views/users/registerError.php");
         }
     }
 
@@ -91,15 +85,10 @@ class mUser
 
                 mail('sergio.gomez@nodrizatech.com', 'Contraseña Renovada', '$mensaje');
 
-                $error = "Correo Enviado";
+                echo $this->cargarView("../views/users/reminderSend.php");
             }
         } else {
-            $error = "Error de usuario";
-        }
-
-        if (isset($error)) {
-            echo $this->cargarView("../views/reminder.php");
-            echo "<p align='center'>$error</p>";
+            echo $this->cargarView("../views/users/reminderError.php");
         }
     }
 

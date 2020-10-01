@@ -5,14 +5,10 @@
     <title>Titulo</title>
 </head>
 <body>
-<div align="left">
+<div class="left">
 
     <h3><?php
-        if (isset($_SESSION['nombre'])) {
-            echo "Usuario: " . $_SESSION['nombre'];
-        } else {
-            echo "No hay sesión iniciada";
-        }
+        echo "Usuario: " . $_SESSION['nombre'];
         ?>
     </h3>
 

@@ -15,7 +15,7 @@ if ($_REQUEST['action']) {
             }
             if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                 $cUser = new cUsers();
-                echo $cUser->cargarView("../views/logIn.php");
+                echo $cUser->cargarView("../views/users/logIn.php");
             }
             break;
 
@@ -30,7 +30,6 @@ if ($_REQUEST['action']) {
                 echo $cError->cargarView("../views/error.php");
             } else {
                 $cItem = new cItems();
-                echo $cItem->cargarView("../views/listItems.php");
                 $cItem->listar();
             }
             break;
@@ -47,7 +46,7 @@ if ($_REQUEST['action']) {
                     echo $cError->cargarView("../views/error.php");
                 } else {
                     $cItem = new cItems();
-                    echo $cItem->cargarView("../views/addItems.php");
+                    echo $cItem->cargarView("../views/items/addItems.php");
                 }
             }
             break;
@@ -60,7 +59,7 @@ if ($_REQUEST['action']) {
             if ($_SERVER["REQUEST_METHOD"] == "GET") {
                 require_once("../controllers/cUsers.php");
                 $cUser = new cUsers();
-                echo $cUser->cargarView("../views/register.php");
+                echo $cUser->cargarView("../views/users/register.php");
             }
             break;
 
@@ -72,7 +71,7 @@ if ($_REQUEST['action']) {
 
             if ($_SERVER["REQUEST_METHOD"] == "GET") {
                 $cUser = new cUsers();
-                echo $cUser->cargarView("../views/reminder.php");
+                echo $cUser->cargarView("../views/users/reminder.php");
             }
             break;
 
@@ -85,6 +84,6 @@ if ($_REQUEST['action']) {
     header('Location: index.php?action=listItems');
 } else {
     $cUser = new cUsers();
-    echo $cUser->cargarView("../views/logIn.php");
+    echo $cUser->cargarView("../views/users/logIn.php");
 }
 

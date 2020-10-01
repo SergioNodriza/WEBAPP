@@ -13,28 +13,34 @@ class mItem
 
         $contador = 0;
 
-        while ($contador < count($resultados)) {
-            echo "<tr>";
-            echo "<td>";
-            echo $resultados[$contador]["id"];
-            echo "</td>";
-            echo "<td>";
-            echo $resultados[$contador]["title"];
-            echo "</td>";
-            echo "<td>";
-            if ($resultados[$contador]["done"] == 0) {
-                echo "No";
-            } else {
-                echo "Si";
+        if($resultados == false){
+            echo $this->cargarView("../views/items/listItemsError.php");
+        } else {
+            echo $this->cargarView("../views/items/listItems.php");
+
+            while ($contador < count($resultados)) {
+                echo "<tr>";
+                echo "<td>";
+                echo $resultados[$contador]["id"];
+                echo "</td>";
+                echo "<td>";
+                echo $resultados[$contador]["title"];
+                echo "</td>";
+                echo "<td>";
+                if ($resultados[$contador]["done"] == 0) {
+                    echo "No";
+                } else {
+                    echo "Si";
+                }
+                echo "</td>";
+                echo "<td>";
+                echo $resultados[$contador]["created_at"];
+                echo "</td>";
+                echo "</tr>";
+                $contador++;
             }
-            echo "</td>";
-            echo "<td>";
-            echo $resultados[$contador]["created_at"];
-            echo "</td>";
-            echo "</tr>";
-            $contador++;
+            echo "</table>";
         }
-        echo "</table>";
     }
 
     public function doAdd()
@@ -50,17 +56,15 @@ class mItem
         $created_at = $_POST['created_at'];
 
         if ($title === "" || $created_at === "") {
-            echo $this->cargarView("../views/addItems.php");
-            echo "<p align='center'>Error, item no valido</p>";
+            echo $this->cargarView("../views/items/addItemsError.php");
         } else {
 
             $resul1 = (new selects())->selectID($nombre);
             $resul2 = (new selects())->insertItemsID($title, $done, $created_at, $resul1);
-            echo $this->cargarView("../views/addItems.php");
+            echo $this->cargarView("../views/items/addItems.php");
             echo "<p align='center'>$resul2</p>";
 
         }
-
     }
 
     /**

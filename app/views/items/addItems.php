@@ -1,8 +1,11 @@
-<?php require 'cabecera.php'; ?>
+<?php require '../views/cabecera.php'; ?>
+<style>
+    <?php include '../views/estilo.css'?>
+</style>
 
 <br><br><br><br><br><br><br><br><br>
 
-<div align="center">
+<div class="center">
 
     <form action="index.php?action=addItems" method="post">
         <label for="title"></label>

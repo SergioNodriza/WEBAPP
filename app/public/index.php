@@ -1,71 +1,78 @@
 <?php
 session_start();
-
 require_once("../db/conexion.php");
+require_once("../controllers/cError.php");
+require_once("../controllers/cUsers.php");
+require_once("../controllers/cItems.php");
 
 if ($_REQUEST['action']) {
     switch ($_REQUEST['action']) {
 
         case "logIn":
-
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-                require_once("../controllers/logIn.php");
-                doLog();
+                $cUser = new cUsers();
+                $cUser->login();
             }
             if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-                require_once("../controllers/logIn.php");
-                echo cargarView("../views/logIn.php");
+                $cUser = new cUsers();
+                echo $cUser->cargarView("../views/logIn.php");
             }
             break;
 
         case "logOut":
-            require_once("../controllers/logOut.php");
+            $cUser = new cUsers();
+            $cUser->logout();
             break;
 
         case "listItems":
             if (!$_SESSION) {
-                require_once("../controllers/error.php");
+                $cError = new cError();
+                echo $cError->cargarView("../views/error.php");
             } else {
-                require_once("../controllers/listItems.php");
+                $cItem = new cItems();
+                echo $cItem->cargarView("../views/listItems.php");
+                $cItem->listar();
             }
             break;
 
         case "addItems":
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-                require_once("../controllers/addItems.php");
-                doAdd();
+                $cItem = new cItems();
+                $cItem->add();
             }
             if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
                 if (!$_SESSION) {
-                    require_once("../controllers/error.php");
+                    $cError = new cError();
+                    echo $cError->cargarView("../views/error.php");
                 } else {
-                    require_once("../controllers/addItems.php");
-                    echo cargarView("../views/addItems.php");
+                    $cItem = new cItems();
+                    echo $cItem->cargarView("../views/addItems.php");
                 }
             }
             break;
 
         case "register":
             if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                require_once("../controllers/register.php");
-                doRegist();
+                $cUser = new cUsers();
+                $cUser->regist();
             }
             if ($_SERVER["REQUEST_METHOD"] == "GET") {
-                require_once("../controllers/register.php");
-                echo cargarView("../views/register.php");
+                require_once("../controllers/cUsers.php");
+                $cUser = new cUsers();
+                echo $cUser->cargarView("../views/register.php");
             }
             break;
 
         case "reminder":
             if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                require_once("../controllers/reminder.php");
-                doReminder();
+                $cUser = new cUsers();
+                $cUser->remind();
             }
 
             if ($_SERVER["REQUEST_METHOD"] == "GET") {
-                require_once("../controllers/reminder.php");
-                echo cargarView("../views/reminder.php");
+                $cUser = new cUsers();
+                echo $cUser->cargarView("../views/reminder.php");
             }
             break;
 
@@ -75,9 +82,9 @@ if ($_REQUEST['action']) {
     }
 
 } elseif (isset($_SESSION['nombre'])) {
-    require_once("../controllers/listItems.php");
+    header('Location: index.php?action=listItems');
 } else {
-    require_once("../controllers/logIn.php");
-    echo cargarView("../views/logIn.php");
+    $cUser = new cUsers();
+    echo $cUser->cargarView("../views/logIn.php");
 }
 

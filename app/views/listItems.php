@@ -11,12 +11,7 @@
             <th>Fecha Creación</th>
         </tr>
 
-        <?php
-        (new listItems)->listado();
-        ?>
-
-    </table>
-
+</div>
     <br>
     <input type="button" onclick="location.href='index.php?action=addItems'" value="Añadir Item">
 </div>

@@ -1,4 +1,4 @@
-<?php require '../views/cabecera.php'; ?>
+<?php require 'cabecera.php'; ?>
 <style>
     <?php include '../views/estilo.css'?>
 </style>

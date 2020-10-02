@@ -22,7 +22,6 @@ class cUsers extends cMain
                 elseif ($_GET){
                     $vista->cargarFooter("../views/users/logIn.php", "../views/users/footerLogIn.php");
                 }
-
                 break;
 
             case "logOut":

@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <title>Titulo</title>
 </head>
+<style>
+    <?php include '../views/estilo.css'?>
+</style>
 <body>
 <div class="left">
 

@@ -17,11 +17,3 @@
         <br><br>
         <input type="submit" value="Nuevo Item">
     </form>
-
-    <br><br><br>
-    <input type="button" onclick="location.href='index.php?action=listItems'" value="Volver">
-
-</div>
-
-</body>
-</html>

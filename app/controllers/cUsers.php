@@ -2,48 +2,50 @@
 require_once("../models/mUser.php");
 require_once("../models/helpLimpiar.php");
 require_once("../models/selects.php");
+require_once("../models/showView.php");
 
 /**
  * Class cUsers
  */
-class cUsers
+class cUsers extends cMain
 {
-
-    public function login()
+    public function address2()
     {
         $user = new mUser();
-        $user->doLogIn();
-    }
+        $vista = new showView();
+        switch($this->request){
 
+            case "logIn":
+                if ($_POST){
+                    $user->doLogIn();
+                }
+                elseif ($_GET){
+                    $vista->cargarFooter("../views/users/logIn.php", "../views/users/footerLogIn.php");
+                }
 
-    public function logout()
-    {
-        $user = new mUser();
-        $user->doLogOut();
-    }
+                break;
 
-    public function regist()
-    {
-        $user = new mUser();
-        $user->doRegist();
-    }
+            case "logOut":
+                    $user->doLogOut();
+                break;
 
-    public function remind()
-    {
-        $user = new mUser();
-        $user->doRemind();
-    }
+            case "register":
+                if ($_POST){
+                    $user->doRegist();
+                }
+                elseif ($_GET){
+                    $vista->cargarFooter("../views/users/register.php", "../views/users/footerVolver.php");
+                }
+                break;
 
-    /**
-     * @param $vista
-     * @return false|string
-     */
-    public function cargarView($vista)
-    {
-        ob_start();
-        include($vista);
-        $output = ob_get_contents();
-        ob_end_clean();
-        return $output;
+            case "reminder":
+                if ($_POST){
+                    $user->doRemind();
+                }
+                elseif ($_GET){
+                    $vista->cargarFooter("../views/users/reminder.php", "../views/users/footerVolver.php");
+                }
+                break;
+        }
     }
 }

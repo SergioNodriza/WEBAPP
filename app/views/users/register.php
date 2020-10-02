@@ -25,9 +25,3 @@
             <input type="password" name="password2" placeholder="Repetir Contraseña">
         </label>
         <input type="submit" value="Registrar">
-
-        <br><br><br>
-        <input type="button" onclick="location.href='index.php?action=logIn'" value="Volver">
-    </form>
-
-</div>

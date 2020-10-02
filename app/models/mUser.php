@@ -22,7 +22,8 @@ class mUser
             $_SESSION['nombre'] = $usuario;
             header('Location: index.php?action=listItems');
         } else {
-                echo $this->cargarView("../views/users/logInError.php");
+            $error = "Error al iniciar Sesión";
+            (new showView())->cargarAll("../views/users/logIn.php", $error, "../views/users/footerLogIn.php");
         }
 
     }
@@ -31,7 +32,7 @@ class mUser
     {
         session_start();
         session_destroy();
-        header('Location: index.php?action=index');
+        header('Location: index.php?action=logIn');
     }
 
     public function doRegist()
@@ -65,19 +66,22 @@ class mUser
             header("Location: index.php?action=listItems");
 
         } else {
-            echo $this->cargarView("../views/users/registerError.php");
+            (new showView())->cargarAll("../views/users/register.php", $error, "../views/users/footerVolver.php");
         }
     }
 
     public function doRemind()
     {
         $usuario = (new helpLimpiar())->limpiarDatos($_POST['usuario']);
+        $error = "Introduzca un usuario";
 
         if ($usuario != "") {
             $resultado = (new selects())->comprobarUsuario($usuario);
 
             if ($resultado == false) {
                 $error = "No existe ese usuario";
+                (new showView())->cargarAll("../views/users/reminder.php", $error, "../views/users/footerVolver.php");
+
             } else {
 
                 $newpass = mt_rand(1, 999);
@@ -85,23 +89,10 @@ class mUser
 
                 mail('sergio.gomez@nodrizatech.com', 'Contraseña Renovada', '$mensaje');
 
-                echo $this->cargarView("../views/users/reminderSend.php");
+                (new showView())->cargarAll("../views/users/reminder.php", "Correo Enviado", "../views/users/footerVolver.php");
             }
         } else {
-            echo $this->cargarView("../views/users/reminderError.php");
+            (new showView())->cargarAll("../views/users/reminder.php", $error, "../views/users/footerVolver.php");
         }
-    }
-
-    /**
-     * @param $vista
-     * @return false|string
-     */
-    public function cargarView($vista)
-    {
-        ob_start();
-        include($vista);
-        $output = ob_get_contents();
-        ob_end_clean();
-        return $output;
     }
 }

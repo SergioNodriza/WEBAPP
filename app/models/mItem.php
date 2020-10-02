@@ -13,33 +13,29 @@ class mItem
 
         $contador = 0;
 
-        if($resultados == false){
-            echo $this->cargarView("../views/items/listItemsError.php");
+        if ($resultados == false) {
+            (new showView())->cargarError("../views/items/listItems.php", "No hay items");
         } else {
-            echo $this->cargarView("../views/items/listItems.php");
+            $param = "";
 
             while ($contador < count($resultados)) {
-                echo "<tr>";
-                echo "<td>";
-                echo $resultados[$contador]["id"];
-                echo "</td>";
-                echo "<td>";
-                echo $resultados[$contador]["title"];
-                echo "</td>";
-                echo "<td>";
+                $param .= "<tr><td>";
+                $param .= $resultados[$contador]["id"];
+                $param .= "</td><td>";
+                $param .= $resultados[$contador]["title"];
+                $param .= "</td><td>";
                 if ($resultados[$contador]["done"] == 0) {
-                    echo "No";
+                    $param .= "No";
                 } else {
-                    echo "Si";
+                    $param .= "Si";
                 }
-                echo "</td>";
-                echo "<td>";
-                echo $resultados[$contador]["created_at"];
-                echo "</td>";
-                echo "</tr>";
+                $param .= "</td><td>";
+                $param .= $resultados[$contador]["created_at"];
+                $param .= "</td></tr>";
                 $contador++;
             }
-            echo "</table>";
+            $param .= "</table>";
+            (new showView())->cargarAll("../views/items/listItems.php", $param, "../views/items/footerList.php");
         }
     }
 
@@ -56,29 +52,13 @@ class mItem
         $created_at = $_POST['created_at'];
 
         if ($title === "" || $created_at === "") {
-            echo $this->cargarView("../views/items/addItemsError.php");
+            (new showView())->cargarView("../views/items/addItemsError.php");
         } else {
 
             $resul1 = (new selects())->selectID($nombre);
-            $resul2 = (new selects())->insertItemsID($title, $done, $created_at, $resul1);
-            echo $this->cargarView("../views/items/addItems.php");
-            echo "<p align='center'>$resul2</p>";
+            $resul2 = "<p>" . (new selects())->insertItemsID($title, $done, $created_at, $resul1) . "</p>";
+            (new showView())->cargarAll("../views/items/addItems.php", $resul2, "../views/items/footerAdd.php");
 
         }
     }
-
-    /**
-     * @param $vista
-     * @return false|string
-     */
-    public function cargarView($vista)
-    {
-        ob_start();
-        include($vista);
-        $output = ob_get_contents();
-        ob_end_clean();
-        return $output;
-    }
-
-
 }

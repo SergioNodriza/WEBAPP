@@ -2,36 +2,31 @@
 require_once("../models/mItem.php");
 require_once("../models/helpLimpiar.php");
 require_once("../models/selects.php");
+require_once("../models/showView.php");
 
 /**
  * Class cItems
  */
-class cItems
+class cItems extends cMain
 {
-
-    public function listar()
+    public function address2()
     {
         $item = new mItem();
-        $item->doList();
-    }
+        $vista = new showView();
+        switch($this->request){
 
+            case "listItems":
+                    $item->doList();
+                break;
 
-    public function add()
-    {
-        $item = new mItem();
-        $item->doAdd();
-    }
-
-    /**
-     * @param $vista
-     * @return false|string
-     */
-    public function cargarView($vista)
-    {
-        ob_start();
-        include($vista);
-        $output = ob_get_contents();
-        ob_end_clean();
-        return $output;
+            case "addItems":
+                if ($_POST){
+                    $item->doAdd();
+                }
+                elseif ($_GET){
+                    $vista->cargarFooter("../views/items/addItems.php", "../views/items/footerAdd.php");
+                }
+                break;
+        }
     }
 }

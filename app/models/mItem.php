@@ -14,7 +14,8 @@ class mItem
         $contador = 0;
 
         if ($resultados == false) {
-            (new showView())->cargarError("../views/items/listItems.php", "No hay items");
+            $param = "<td colspan='4'>No hay Items</td></table>";
+            (new showView())->cargarAll("../views/items/listItems.php", $param, "../views/items/footerList.php");
         } else {
             $param = "";
 

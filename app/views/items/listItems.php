@@ -7,6 +7,9 @@
 
 <div class="center">
     <table class="center">
+
+        <thead>
+
         <tr>
             <th>ID</th>
             <th>Titulo</th>
@@ -14,3 +17,12 @@
             <th>Fecha Creación</th>
         </tr>
 
+        </thead>
+
+        <tbody>
+        <?php if($param){echo "<br><br>" . $param;}?>
+        </tbody>
+
+        <tfoot>
+        <?php echo $this->cargarView("../views/items/footerList.php");?>
+        </tfoot>

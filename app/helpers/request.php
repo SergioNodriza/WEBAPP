@@ -1,13 +1,13 @@
 <?php
 
 
-class helpLimpiar
+class request
 {
     /**
      * @param $datos
      * @return string
      */
-    function limpiarDatos($datos)
+    public function limpiarDatos($datos)
     {
         $datos = trim($datos);
         $datos = stripslashes($datos);

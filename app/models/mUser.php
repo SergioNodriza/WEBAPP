@@ -6,12 +6,13 @@
 class mUser
 {
 
-    public function doLogIn()
+    /**
+     * @param $usuario
+     * @param $passw
+     * @return false|string|void
+     */
+    public function doLogIn($usuario, $passw)
     {
-
-        $usuario = (new helpLimpiar())->limpiarDatos($_POST['usuario']);
-        $passw = $_POST['password'];
-
         $resultado = (new selects())->comprobarUsuario($usuario);
 
         if ($resultado !== false && password_verify($passw, $resultado['contra'])) {
@@ -23,9 +24,9 @@ class mUser
             header('Location: index.php?action=listItems');
         } else {
             $error = "Error al iniciar Sesión";
-            (new showView())->cargarAll("../views/users/logIn.php", $error, "../views/users/footerLogIn.php");
+            return (new baseView())->cargarView("../views/users/logIn.php", $error);
         }
-
+        return;
     }
 
     public function doLogOut()
@@ -35,13 +36,16 @@ class mUser
         header('Location: index.php?action=logIn');
     }
 
-    public function doRegist()
-    {
 
-        $usuario = (new helpLimpiar())->limpiarDatos($_POST['usuario']);
-        $passw = $_POST['password'];
-        $passw2 = $_POST['password2'];
-        $cifrada = password_hash($_POST['password'], PASSWORD_DEFAULT);
+    /**
+     * @param $usuario
+     * @param $passwd
+     * @param $passwd2
+     * @return false|string|void
+     */
+    public function doRegist($usuario, $passwd, $passwd2)
+    {
+        $cifrada = password_hash($passwd, PASSWORD_DEFAULT);
 
         if ($usuario !== "") {
             $resultado = (new selects())->comprobarUsuario($usuario);
@@ -53,7 +57,7 @@ class mUser
             $error = "Error de Usuario";
         }
 
-        if ($passw !== $passw2) {
+        if ($passwd !== $passwd2) {
             $error .= " Las contraseñas no coinciden";
         }
 
@@ -66,13 +70,18 @@ class mUser
             header("Location: index.php?action=listItems");
 
         } else {
-            (new showView())->cargarAll("../views/users/register.php", $error, "../views/users/footerVolver.php");
+            return (new baseView())->cargarView("../views/users/register.php", $error);
         }
+        return;
     }
 
-    public function doRemind()
+
+    /**
+     * @param $usuario
+     * @return false|string
+     */
+    public function doRemind($usuario)
     {
-        $usuario = (new helpLimpiar())->limpiarDatos($_POST['usuario']);
         $error = "Introduzca un usuario";
 
         if ($usuario != "") {
@@ -80,7 +89,7 @@ class mUser
 
             if ($resultado == false) {
                 $error = "No existe ese usuario";
-                (new showView())->cargarAll("../views/users/reminder.php", $error, "../views/users/footerVolver.php");
+                return (new baseView())->cargarView("../views/users/reminder.php", $error);
 
             } else {
 
@@ -89,10 +98,10 @@ class mUser
 
                 mail('sergio.gomez@nodrizatech.com', 'Contraseña Renovada', '$mensaje');
 
-                (new showView())->cargarAll("../views/users/reminder.php", "Correo Enviado", "../views/users/footerVolver.php");
+                return (new baseView())->cargarView("../views/users/reminder.php", "Correo Enviado");
             }
         } else {
-            (new showView())->cargarAll("../views/users/reminder.php", $error, "../views/users/footerVolver.php");
+            return (new baseView())->cargarView("../views/users/reminder.php", $error);
         }
     }
 }

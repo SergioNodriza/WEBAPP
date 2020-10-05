@@ -1,50 +1,70 @@
 <?php
 require_once("../models/mUser.php");
-require_once("../models/helpLimpiar.php");
+require_once("../helpers/request.php");
 require_once("../models/selects.php");
-require_once("../models/showView.php");
+require_once("../lib/views/baseView.php");
 
 /**
  * Class cUsers
  */
 class cUsers extends cMain
 {
-    public function address2()
+
+    /**
+     * @return false|string|void
+     */
+    public function actionLogIn()
     {
         $user = new mUser();
-        $vista = new showView();
-        switch($this->request){
+        $vista = new baseView();
 
-            case "logIn":
-                if ($_POST){
-                    $user->doLogIn();
-                }
-                elseif ($_GET){
-                    $vista->cargarFooter("../views/users/logIn.php", "../views/users/footerLogIn.php");
-                }
-                break;
+        if ($_POST) {
+            $usuario = (new request())->limpiarDatos($_POST['usuario']);
+            $passw = (new request())->limpiarDatos($_POST['password']);
+            return $user->doLogIn($usuario, $passw);
+        } elseif ($_GET) {
+            return $vista->cargarView("../views/users/logIn.php");
+        }
+    }
 
-            case "logOut":
-                    $user->doLogOut();
-                break;
+    public function actionLogOut()
+    {
+        $user = new mUser();
+        $user->doLogOut();
+    }
 
-            case "register":
-                if ($_POST){
-                    $user->doRegist();
-                }
-                elseif ($_GET){
-                    $vista->cargarFooter("../views/users/register.php", "../views/users/footerVolver.php");
-                }
-                break;
+    /**
+     * @return false|string
+     */
+    public function actionReminder()
+    {
+        $user = new mUser();
+        $vista = new baseView();
 
-            case "reminder":
-                if ($_POST){
-                    $user->doRemind();
-                }
-                elseif ($_GET){
-                    $vista->cargarFooter("../views/users/reminder.php", "../views/users/footerVolver.php");
-                }
-                break;
+        if ($_POST) {
+            $usuario = (new request())->limpiarDatos($_POST['usuario']);
+            return $user->doRemind($usuario);
+        } elseif ($_GET) {
+            return $vista->cargarView("../views/users/reminder.php");
+        }
+    }
+
+    /**
+     * @return false|string|void
+     */
+    public function actionLRegister()
+    {
+
+        $user = new mUser();
+        $vista = new baseView();
+
+        if ($_POST) {
+            $usuario = (new request())->limpiarDatos($_POST['usuario']);
+            $passw = $_POST['password'];
+            $passw2 = $_POST['password2'];
+            return $user->doRegist($usuario, $passw, $passw2);
+        } elseif ($_GET) {
+            return $vista->cargarView("../views/users/register.php");
         }
     }
 }

@@ -2,7 +2,6 @@
 session_start();
 require_once("../controllers/cUsers.php");
 require_once("../controllers/cItems.php");
-require_once("../controllers/cError.php");
 
 /**
  * Class cMain
@@ -19,27 +18,31 @@ class cMain
         $this->request = $r;
     }
 
-    public function address()
+    public function routes()
     {
+        $cUser = new cUsers($this->request);
+        $cItem = new cItems($this->request);
+
         switch ($this->request) {
 
             case "logIn":
+                echo $cUser->actionLogIn();
+                break;
             case "logOut":
+                echo $cUser->actionLogOut();
+                break;
             case "reminder":
+                echo $cUser->actionReminder();
+                break;
             case "register":
-                $cUser = new cUsers($this->request);
-                $cUser->address2();
+                echo $cUser->actionLRegister();
                 break;
 
             case "listItems":
+                echo $cItem->actionList($_SESSION['nombre']);
+                break;
             case "addItems":
-                if (isset($_SESSION['nombre'])) {
-                    $cItem = new cItems($this->request);
-                    $cItem->address2();
-                } else {
-                    $cError = new cError();
-                    $cError->cargarError("../views/error.php");
-                }
+                echo $cItem->actionAdd($_SESSION['nombre']);
                 break;
 
             default:

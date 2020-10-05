@@ -1,32 +1,58 @@
 <?php
 require_once("../models/mItem.php");
-require_once("../models/helpLimpiar.php");
+require_once("../helpers/request.php");
 require_once("../models/selects.php");
-require_once("../models/showView.php");
+require_once("../lib/views/baseView.php");
 
 /**
  * Class cItems
  */
 class cItems extends cMain
 {
-    public function address2()
+    /**
+     * @param $session
+     * @return false|string
+     */
+    public function actionList($session)
     {
-        $item = new mItem();
-        $vista = new showView();
-        switch($this->request){
 
-            case "listItems":
-                    $item->doList();
-                break;
-
-            case "addItems":
-                if ($_POST){
-                    $item->doAdd();
-                }
-                elseif ($_GET){
-                    $vista->cargarFooter("../views/items/addItems.php", "../views/items/footerAdd.php");
-                }
-                break;
+        if ($session) {
+            $item = new mItem();
+            $nombre = $_SESSION['nombre'];
+            return $item->doList($nombre);
+        } else {
+            $vista = new baseView();
+            return $vista->cargarView("../views/error.php");
         }
+    }
+
+
+    /**
+     * @param $session
+     * @return false|string
+     */
+    public function actionAdd($session)
+    {
+
+        if ($session) {
+            if ($_POST) {
+
+                $item = new mItem();
+                $nombre = $_SESSION['nombre'];
+                $title = $_POST['title'];
+                $done = $_POST['done'];
+                $created_at = $_POST['created_at'];
+                return $item->doAdd($nombre, $title, $done, $created_at);
+
+            } elseif ($_GET) {
+                $vista = new baseView();
+                return $vista->cargarView("../views/items/addItems.php");
+            }
+        } else {
+            $vista = new baseView();
+            return $vista->cargarView("../views/error.php");
+        }
+
+
     }
 }

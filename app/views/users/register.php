@@ -25,3 +25,8 @@
             <input type="password" name="password2" placeholder="Repetir Contraseña">
         </label>
         <input type="submit" value="Registrar">
+
+        <?php
+        if($param){echo "<br><br>" . $param;}
+        echo $this->cargarView("../views/users/footerVolver.php");
+        ?>

@@ -17,3 +17,8 @@
         <br><br>
         <input type="submit" value="Nuevo Item">
     </form>
+
+    <?php
+    if($param){echo "<br><br>" . $param;}
+    echo $this->cargarView("../views/items/footerAdd.php");
+    ?>

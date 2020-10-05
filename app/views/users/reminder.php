@@ -20,3 +20,7 @@
         </label>
         <input type="submit" value="Enviar Correo">
 
+        <?php
+        if($param){echo "<br><br>" . $param;}
+        echo $this->cargarView("../views/users/footerVolver.php");
+        ?>

@@ -6,16 +6,20 @@
 class mItem
 {
 
-    public function doList()
+
+    /**
+     * @param $nombre
+     * @return false|string
+     */
+    public function doList($nombre)
     {
-        $nombre = $_SESSION['nombre'];
         $resultados = (new selects())->listarItems($nombre);
 
         $contador = 0;
 
         if ($resultados == false) {
             $param = "<td colspan='4'>No hay Items</td></table>";
-            (new showView())->cargarAll("../views/items/listItems.php", $param, "../views/items/footerList.php");
+            return (new baseView())->cargarView("../views/items/listItems.php", $param);
         } else {
             $param = "";
 
@@ -36,30 +40,34 @@ class mItem
                 $contador++;
             }
             $param .= "</table>";
-            (new showView())->cargarAll("../views/items/listItems.php", $param, "../views/items/footerList.php");
+            return (new baseView())->cargarView("../views/items/listItems.php", $param);
         }
     }
 
-    public function doAdd()
-    {
 
-        $nombre = $_SESSION['nombre'];
-        $title = $_POST['title'];
-        if ($_POST['done'] === "on") {
-            $done = 1;
+    /**
+     * @param $nombre
+     * @param $title
+     * @param $done
+     * @param $created_at
+     * @return false|string
+     */
+    public function doAdd($nombre, $title, $done, $created_at)
+    {
+        if ($done === "on") {
+            $doneBool = 1;
         } else {
-            $done = 0;
+            $doneBool = 0;
         }
-        $created_at = $_POST['created_at'];
 
         if ($title === "" || $created_at === "") {
-            (new showView())->cargarView("../views/items/addItemsError.php");
+            $error = "Error al añadir";
+            return (new baseView())->cargarView("../views/items/addItems.php", $error);
         } else {
 
             $resul1 = (new selects())->selectID($nombre);
-            $resul2 = "<p>" . (new selects())->insertItemsID($title, $done, $created_at, $resul1) . "</p>";
-            (new showView())->cargarAll("../views/items/addItems.php", $resul2, "../views/items/footerAdd.php");
-
+            $resul2 = "<p>" . (new selects())->insertItemsID($title, $doneBool, $created_at, $resul1) . "</p>";
+            return (new baseView())->cargarView("../views/items/addItems.php", $resul2);
         }
     }
 }

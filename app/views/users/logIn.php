@@ -22,3 +22,8 @@
             <input type="password" name="password" placeholder="Contraseña">
         </label>
         <input type="submit" value="Iniciar Sesion">
+
+        <?php
+        if($param){echo "<br><br>" . $param;}
+        echo $this->cargarView("../views/users/footerLogIn.php");
+        ?>

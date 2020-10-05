@@ -1,19 +1,21 @@
 <?php
 
 
-class cError
+/**
+ * Class showView
+ */
+class baseView
 {
 
     /**
      * @param $vista
-     * @return false|string
      */
-    public function cargarError($vista)
+    public function cargarView($vista, $param = [])
     {
         ob_start();
         include($vista);
         $output = ob_get_contents();
         ob_end_clean();
-        echo $output;
+        return $output;
     }
 }

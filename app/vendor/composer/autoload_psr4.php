@@ -11,5 +11,6 @@ return array(
     'Psr\\Http\\Message\\' => array($vendorDir . '/psr/http-factory/src', $vendorDir . '/psr/http-message/src'),
     'Psr\\Container\\' => array($vendorDir . '/psr/container/src'),
     'League\\Route\\' => array($vendorDir . '/league/route/src'),
+    'League\\Plates\\' => array($vendorDir . '/league/plates/src'),
     'FastRoute\\' => array($vendorDir . '/nikic/fast-route/src'),
 );

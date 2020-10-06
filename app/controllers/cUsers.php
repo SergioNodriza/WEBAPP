@@ -1,8 +1,5 @@
 <?php
-require_once("../models/mUser.php");
-require_once("../helpers/request.php");
-require_once("../models/selects.php");
-require_once("../lib/views/baseView.php");
+namespace WebApp\controllers;
 
 /**
  * Class cUsers

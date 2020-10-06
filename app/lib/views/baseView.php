@@ -1,5 +1,5 @@
 <?php
-
+namespace WebApp\lib\views;
 
 /**
  * Class showView

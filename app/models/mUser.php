@@ -1,4 +1,5 @@
 <?php
+namespace WebApp\models;
 
 /**
  * Class user

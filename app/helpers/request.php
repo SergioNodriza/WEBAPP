@@ -1,5 +1,5 @@
 <?php
-
+namespace WebApp\helpers;
 
 class request
 {

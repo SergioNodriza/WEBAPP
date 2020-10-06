@@ -1,0 +1,11 @@
+{
+    "require": {
+        "league/route": "^4.5"
+    },
+
+    "autoload": {
+        "psr-4":{
+            "WebApp\\": "."
+        }
+    }
+}

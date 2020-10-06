@@ -1,4 +1,5 @@
 <?php
+namespace WebApp\lib\db;
 
 /**
  * Class conexion

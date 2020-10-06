@@ -1,7 +1,6 @@
 <?php
+namespace WebApp\controllers;
 session_start();
-require_once("../controllers/cUsers.php");
-require_once("../controllers/cItems.php");
 
 /**
  * Class cMain

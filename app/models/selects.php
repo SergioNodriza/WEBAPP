@@ -1,5 +1,5 @@
 <?php
-
+namespace WebApp\models;
 
 /**
  * Class selects

@@ -1,6 +1,8 @@
 <?php
 namespace WebApp\models;
 
+use WebApp\lib\db\conexion;
+
 /**
  * Class selects
  */

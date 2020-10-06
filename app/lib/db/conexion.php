@@ -1,6 +1,8 @@
 <?php
 namespace WebApp\lib\db;
 
+use PDO;
+
 /**
  * Class conexion
  */
@@ -22,7 +24,7 @@ class conexion
             $database = getenv("DB_DATABASE");
             $options[\PDO::ATTR_PERSISTENT] = true;
 
-            $pdo = new PDO(sprintf('mysql:host=%s;dbname=%s;port=%d', $host, $database, $port), $user, $pass, $options);
+            $pdo = new PDO (sprintf('mysql:host=%s;dbname=%s;port=%d', $host, $database, $port), $user, $pass, $options);
 
             static::$_conexion = $pdo;
 

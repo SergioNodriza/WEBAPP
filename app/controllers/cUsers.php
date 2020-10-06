@@ -1,6 +1,10 @@
 <?php
 namespace WebApp\controllers;
 
+use WebApp\helpers\request;
+use WebApp\lib\views\baseView;
+use WebApp\models\mUser;
+
 /**
  * Class cUsers
  */

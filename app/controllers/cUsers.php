@@ -53,7 +53,7 @@ class cUsers extends cMain
     /**
      * @return false|string|void
      */
-    public function actionLRegister()
+    public function actionRegister()
     {
 
         $user = new mUser();

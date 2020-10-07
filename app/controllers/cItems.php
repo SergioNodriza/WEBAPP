@@ -10,31 +10,28 @@ use WebApp\models\mItem;
 class cItems extends cMain
 {
     /**
-     * @param $session
      * @return false|string
      */
-    public function actionList($session)
+    public function actionListItems()
     {
-
-        if ($session) {
+        if (isset($_SESSION['nombre'])) {
             $item = new mItem();
             $nombre = $_SESSION['nombre'];
+
             return $item->doList($nombre);
-        } else {
-            $vista = new baseView();
-            return $vista->cargarView("../views/error.php");
         }
+
+        $vista = new baseView();
+        return $vista->cargarView("../views/error.php");
     }
 
 
     /**
-     * @param $session
      * @return false|string
      */
-    public function actionAdd($session)
+    public function actionAddItems()
     {
-
-        if ($session) {
+        if (isset($_SESSION['nombre'])) {
             if ($_POST) {
 
                 $item = new mItem();

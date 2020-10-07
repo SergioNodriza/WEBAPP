@@ -4,5 +4,9 @@ use WebApp\controllers\cMain;
 
 require_once '../vendor/autoload.php';
 
-$controller = new cMain($_REQUEST['action']);
-$controller->routes();
+$router = new cMain($_REQUEST['action'] ?? null);
+$response = $router->dispatch();
+
+if ($response) {
+    echo $response;
+}

@@ -32,11 +32,14 @@ class mUser
         return;
     }
 
-    public function doLogOut()
+    /**
+     * @param $bool
+     */
+    public function doLogOut($bool = null)
     {
         session_start();
         session_destroy();
-        header('Location: index.php?action=logIn');
+        if (!$bool){header('Location: index.php?action=logIn');}
     }
 
 

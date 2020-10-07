@@ -1,6 +1,9 @@
+/.composer
+/.git
+/.idea
+
 .env
 .env.dev
 .docker/mysql/data
 .docker/nginx/log
 .idea/
-app/vendor/

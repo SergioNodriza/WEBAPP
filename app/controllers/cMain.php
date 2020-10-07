@@ -1,4 +1,5 @@
 <?php
+
 namespace WebApp\controllers;
 session_start();
 
@@ -10,38 +11,33 @@ class cMain
     protected $request;
 
     /**
-     * @param $r
+     * @param $request
      */
-    public function __construct($r)
+    public function __construct($request)
     {
-        $this->request = $r;
+        $this->request = $request;
     }
 
-    public function routes()
+    public function dispatch()
     {
-        $cUser = new cUsers($this->request);
-        $cItem = new cItems($this->request);
+        $controller_name = null;
+        $action_name = null;
 
         switch ($this->request) {
-
             case "logIn":
-                echo $cUser->actionLogIn();
-                break;
             case "logOut":
-                echo $cUser->actionLogOut();
-                break;
             case "reminder":
-                echo $cUser->actionReminder();
-                break;
             case "register":
-                echo $cUser->actionLRegister();
+                $controller_name = cUsers::class;
+                $action_name = sprintf("action%s", ucfirst($this->request));
+
                 break;
 
             case "listItems":
-                echo $cItem->actionList($_SESSION['nombre']);
-                break;
             case "addItems":
-                echo $cItem->actionAdd($_SESSION['nombre']);
+                $controller_name = cItems::class;
+                $action_name = sprintf("action%s", ucfirst($this->request));
+
                 break;
 
             default:
@@ -50,8 +46,14 @@ class cMain
                 } else {
                     header("Location: index.php?action=logIn");
                 }
-                break;
+                die;
         }
+
+        // initialize controller
+        $controller = new $controller_name($this->request);
+
+        // execute action and return response
+        return $controller->$action_name();
     }
 
 }

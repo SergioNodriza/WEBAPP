@@ -18,6 +18,9 @@ class cMain
         $this->request = $request;
     }
 
+    /**
+     * @return mixed
+     */
     public function dispatch()
     {
         $controller_name = null;

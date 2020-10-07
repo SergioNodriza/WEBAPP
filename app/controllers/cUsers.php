@@ -24,7 +24,7 @@ class cUsers extends cMain
             $passw = (new request())->limpiarDatos($_POST['password']);
             return $user->doLogIn($usuario, $passw);
         } elseif ($_GET) {
-            $user->doLogOut(true);
+            $user->doLogOut(false);
             return $vista->cargarView("../views/users/logIn.php");
         }
     }

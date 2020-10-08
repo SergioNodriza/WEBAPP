@@ -46,7 +46,7 @@ class cUsers extends cMain
         if ($_POST) {
             $usuario = (new request())->limpiarDatos($_POST['usuario']);
             return $user->doRemind($usuario);
-        } elseif ($_GET) {
+        } else {
             return $vista->cargarView("../views/users/reminder.php");
         }
     }

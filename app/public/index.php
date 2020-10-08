@@ -2,7 +2,6 @@
 
 //use WebApp\controllers\cMain;
 
-use Laminas\Diactoros\Request;
 use Laminas\Diactoros\ServerRequestFactory;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;

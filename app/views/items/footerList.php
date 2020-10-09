@@ -1,5 +1,5 @@
 <br>
-<input type="button" onclick="location.href='index.php?action=addItems'" value="Añadir Item">
+<input type="button" onclick="location.href='/items/add'" value="Añadir Item">
 </div>
 
 </body>

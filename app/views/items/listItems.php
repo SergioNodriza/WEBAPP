@@ -3,7 +3,7 @@
     <?php include '../views/estilo.css'?>
 </style>
 
-<br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br>
 
 <div class="center">
     <table class="center">

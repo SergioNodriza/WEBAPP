@@ -3,8 +3,10 @@ namespace WebApp\models;
 
 use WebApp\lib\db\conexion;
 
+
 /**
  * Class selects
+ * @package WebApp\models
  */
 class selects
 {

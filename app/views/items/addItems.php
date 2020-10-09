@@ -7,7 +7,7 @@
 
 <div class="center">
 
-    <form action="index.php?action=addItems" method="post">
+    <form action="/items/add" method="post">
         <label for="title"></label>
         <input type="text" id="title" name="title" placeholder="Titulo">
         <label for="created_at"></label>

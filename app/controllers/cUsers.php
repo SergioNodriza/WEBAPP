@@ -1,32 +1,38 @@
 <?php
 namespace WebApp\controllers;
 
+use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\ServerRequestInterface;
 use WebApp\helpers\request;
 use WebApp\lib\views\baseView;
 use WebApp\models\mUser;
 
+session_start();
+
 /**
  * Class cUsers
+ * @package WebApp\controllers
  */
-class cUsers extends cMain
+class cUsers
 {
 
-    /**
-     * @return false|string|void
-     */
-    public function actionLogIn()
+    public function actionLogIn(ServerRequestInterface $request) : ResponseInterface
     {
         $user = new mUser();
         $vista = new baseView();
+        $response = new \Laminas\Diactoros\Response();
 
-        if ($_POST) {
+        if ($request->getMethod() == "POST") {
             $usuario = (new request())->limpiarDatos($_POST['usuario']);
             $passw = (new request())->limpiarDatos($_POST['password']);
-            return $user->doLogIn($usuario, $passw);
-        } elseif ($_GET) {
+            $action = $user->doLogIn($usuario, $passw);
+
+        } elseif ($request->getMethod() == "GET") {
             $user->doLogOut(false);
-            return $vista->cargarView("../views/users/logIn.php");
+            $action = $vista->cargarView("../views/users/logIn.php");
         }
+        $response->getBody()->write($action);
+        return $response;
     }
 
     public function actionLogOut()
@@ -35,38 +41,45 @@ class cUsers extends cMain
         $user->doLogOut();
     }
 
-    /**
-     * @return false|string
-     */
-    public function actionReminder()
+
+    public function actionReminder(ServerRequestInterface $request) : ResponseInterface
     {
         $user = new mUser();
         $vista = new baseView();
+        $response = new \Laminas\Diactoros\Response();
 
-        if ($_POST) {
+        if ($request->getMethod() == "POST") {
             $usuario = (new request())->limpiarDatos($_POST['usuario']);
-            return $user->doRemind($usuario);
-        } else {
-            return $vista->cargarView("../views/users/reminder.php");
+            $action = $user->doRemind($usuario);
+
+        } elseif ($request->getMethod() == "GET") {
+            $action = $vista->cargarView("../views/users/reminder.php");
         }
+
+        $response->getBody()->write($action);
+        return $response;
     }
 
-    /**
-     * @return false|string|void
-     */
-    public function actionRegister()
+
+    public function actionRegister(ServerRequestInterface $request) : ResponseInterface
     {
 
         $user = new mUser();
         $vista = new baseView();
+        $response = new \Laminas\Diactoros\Response();
 
-        if ($_POST) {
+        if ($request->getMethod() == "POST") {
             $usuario = (new request())->limpiarDatos($_POST['usuario']);
             $passw = $_POST['password'];
             $passw2 = $_POST['password2'];
-            return $user->doRegist($usuario, $passw, $passw2);
-        } elseif ($_GET) {
-            return $vista->cargarView("../views/users/register.php");
+            $action = $user->doRegist($usuario, $passw, $passw2);
+
+        } elseif ($request->getMethod() == "GET") {
+            $action = $vista->cargarView("../views/users/register.php");
         }
+
+        $response->getBody()->write($action);
+        return $response;
     }
+
 }

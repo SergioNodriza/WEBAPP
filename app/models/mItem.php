@@ -3,8 +3,10 @@ namespace WebApp\models;
 
 use WebApp\lib\views\baseView;
 
+
 /**
- * Class items
+ * Class mItem
+ * @package WebApp\models
  */
 class mItem
 {

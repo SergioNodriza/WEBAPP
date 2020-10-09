@@ -14,7 +14,7 @@
 
     <h2>Iniciar Sesion</h2>
 
-    <form action="index.php?action=logIn" method="post">
+    <form action="/users/login" method="post">
         <label>
             <input type="text" name="usuario" placeholder="Usuario">
         </label>

@@ -14,7 +14,7 @@
 
     <h2>Registrar Usuario</h2>
 
-    <form action="index.php?action=register" method="post">
+    <form action="/users/register" method="post">
         <label>
             <input type="text" name="usuario" placeholder="Usuario">
         </label>

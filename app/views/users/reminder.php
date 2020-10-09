@@ -14,7 +14,7 @@
 
     <h2>Recordar Contraseña</h2>
 
-    <form action="index.php?action=reminder" method="post">
+    <form action="/users/reminder" method="post">
         <label>
             <input type="text" name="usuario" placeholder="Usuario">
         </label>

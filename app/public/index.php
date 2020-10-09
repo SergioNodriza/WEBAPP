@@ -1,32 +1,38 @@
 <?php
 
-//use WebApp\controllers\cMain;
-
 use Laminas\Diactoros\ServerRequestFactory;
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\ServerRequestInterface;
 use League\Route\Router;
 
 require_once '../vendor/autoload.php';
-
-/*$router = new cMain($_REQUEST['action'] ?? null);
-$response = $router->dispatch();
-
-if ($response) {
-    echo $response;
-}*/
 
 $request = ServerRequestFactory::fromGlobals(
     $_SERVER, $_GET, $_POST
 );
 $router = new Router();
 
-$router->map('GET', '/', function (ServerRequestInterface $request) : ResponseInterface {
-    $response = new Laminas\Diactoros\Response();
-    $response->getBody()->write('<h1>Hello, World!</h1>');
-    return $response;
+$router->group("/users", function (\League\Route\RouteGroup $route) {
+    $route->map("GET", "/login", "\WebApp\controllers\cUsers::actionLogIn");
+    $route->map("POST", "/login", "\WebApp\controllers\cUsers::actionLogIn");
+    $route->map("GET", "/logout", "\WebApp\controllers\cUsers::actionLogOut");
+    $route->map("GET", "/reminder", "\WebApp\controllers\cUsers::actionReminder");
+    $route->map("POST", "/reminder", "\WebApp\controllers\cUsers::actionReminder");
+    $route->map("GET", "/register", "\WebApp\controllers\cUsers::actionRegister");
+    $route->map("POST", "/register", "\WebApp\controllers\cUsers::actionRegister");
 });
 
-$response = $router->dispatch($request);
+$router->group("/items", function (\League\Route\RouteGroup $route) {
+    $route->map("GET", "/list", "\WebApp\controllers\cItems::actionListItems");
+    $route->map("POST", "/list", "\WebApp\controllers\cItems::actionListItems");
+    $route->map("GET", "/add", "\WebApp\controllers\cItems::actionAddItems");
+    $route->map("POST", "/add", "\WebApp\controllers\cItems::actionAddItems");
+});
 
-(new Laminas\HttpHandlerRunner\Emitter\SapiEmitter())->emit($response);
+$router->map("GET", "/error", "\WebApp\controllers\cError::actionError");
+
+
+try {
+    $response = $router->dispatch($request);
+    (new Laminas\HttpHandlerRunner\Emitter\SapiEmitter())->emit($response);
+} catch (Exception $exception) {
+    header("Location: /error");
+}

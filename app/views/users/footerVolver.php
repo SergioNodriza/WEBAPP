@@ -1,5 +1,5 @@
 <br><br>
-<input type="button" onclick="location.href='index.php?action=logIn'" value="Volver">
+<input type="button" onclick="location.href='/users/login'" value="Volver">
 </form>
 
 </div>

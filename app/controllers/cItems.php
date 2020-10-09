@@ -1,55 +1,71 @@
 <?php
 namespace WebApp\controllers;
 
+use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\ServerRequestInterface;
 use WebApp\lib\views\baseView;
 use WebApp\models\mItem;
 
+session_start();
+
 /**
  * Class cItems
+ * @package WebApp\controllers
  */
-class cItems extends cMain
+class cItems
 {
-    /**
-     * @return false|string
-     */
-    public function actionListItems()
+
+    public function actionListItems(ServerRequestInterface $request) : ResponseInterface
     {
+        $response = new \Laminas\Diactoros\Response();
+
         if (isset($_SESSION['nombre'])) {
             $item = new mItem();
             $nombre = $_SESSION['nombre'];
 
-            return $item->doList($nombre);
+            $action = $item->doList($nombre);
+            $response->getBody()->write($action);
+            return $response;
         }
 
         $vista = new baseView();
-        return $vista->cargarView("../views/error.php");
+        $error = array(
+            0 => "No se pudo listar, no hay sesión",
+            1 => "Session"
+        );
+        $action = $vista->cargarView("../views/error/error.php", $error);
+        $response->getBody()->write($action);
+        return $response;
     }
 
 
-    /**
-     * @return false|string
-     */
-    public function actionAddItems()
+    public function actionAddItems(ServerRequestInterface $request) : ResponseInterface
     {
+        $response = new \Laminas\Diactoros\Response();
+
         if (isset($_SESSION['nombre'])) {
-            if ($_POST) {
+            if ($request->getMethod() == "POST") {
 
                 $item = new mItem();
                 $nombre = $_SESSION['nombre'];
                 $title = $_POST['title'];
                 $done = $_POST['done'];
                 $created_at = $_POST['created_at'];
-                return $item->doAdd($nombre, $title, $done, $created_at);
+                $action = $item->doAdd($nombre, $title, $done, $created_at);
 
-            } elseif ($_GET) {
+            } elseif ($request->getMethod() == "GET") {
                 $vista = new baseView();
-                return $vista->cargarView("../views/items/addItems.php");
+                $action = $vista->cargarView("../views/items/addItems.php");
             }
         } else {
             $vista = new baseView();
-            return $vista->cargarView("../views/error.php");
+            $error = array(
+                0 => "No se pudo añadir, no hay sesión",
+                1 => "Session"
+            );
+            $action = $vista->cargarView("../views/error/error.php", $error);
         }
-
-
+        $response->getBody()->write($action);
+        return $response;
     }
 }

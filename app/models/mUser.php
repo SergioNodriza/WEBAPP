@@ -3,8 +3,10 @@ namespace WebApp\models;
 
 use WebApp\lib\views\baseView;
 
+
 /**
- * Class user
+ * Class mUser
+ * @package WebApp\models
  */
 class mUser
 {
@@ -24,12 +26,11 @@ class mUser
             (new selects())->actualizarLogin($fecha, $usuario);
 
             $_SESSION['nombre'] = $usuario;
-            header('Location: index.php?action=listItems');
+            header('Location: /items/list');
         } else {
             $error = "Error al iniciar Sesión";
             return (new baseView())->cargarView("../views/users/logIn.php", $error);
         }
-        return;
     }
 
     /**
@@ -39,7 +40,7 @@ class mUser
     {
         session_start();
         session_destroy();
-        if ($bool){header('Location: index.php?action=logIn');}
+        if ($bool){header('Location: /users/login');}
     }
 
 
@@ -73,7 +74,7 @@ class mUser
             (new selects())->insertUser($usuario, $fecha, $cifrada);
 
             $_SESSION['nombre'] = $usuario;
-            header("Location: index.php?action=listItems");
+            header("Location: /items/list");
 
         } else {
             return (new baseView())->cargarView("../views/users/register.php", $error);

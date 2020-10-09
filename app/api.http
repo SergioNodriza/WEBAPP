@@ -30,7 +30,7 @@ Content-Disposition: form-data; name="password"
 --WebAppBoundary--
 
 ###
-POST http://localhost:8080/users/login
+POST http://localhost:8080/users/reminder
 Content-Type: application/x-www-form-urlencoded
 
 usuario=usuH&content=new-element

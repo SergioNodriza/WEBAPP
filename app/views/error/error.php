@@ -20,7 +20,7 @@
         if ($param) {
             echo "<br><br>" . $param[0];
 
-            switch ($param[1]){
+            switch ($param[1]) {
                 case "NotFound":
                     echo $this->cargarView("../views/error/footerNotFound.php");
                     break;

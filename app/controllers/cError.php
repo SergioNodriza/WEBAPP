@@ -1,6 +1,7 @@
 <?php
 
 namespace WebApp\controllers;
+
 use Laminas\Diactoros\Response;
 use Psr\Http\Message\ResponseInterface;
 use WebApp\lib\views\baseView;
@@ -13,7 +14,7 @@ session_start();
  */
 class cError
 {
-    public function actionError() : ResponseInterface
+    public function actionError(): ResponseInterface
     {
         $response = new Response();
         $vista = new baseView();

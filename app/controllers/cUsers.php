@@ -1,4 +1,5 @@
 <?php
+
 namespace WebApp\controllers;
 
 use Laminas\Diactoros\Response;
@@ -17,7 +18,7 @@ session_start();
 class cUsers
 {
 
-    public function actionLogIn(ServerRequestInterface $request) : ResponseInterface
+    public function actionLogIn(ServerRequestInterface $request): ResponseInterface
     {
         $user = new mUser();
         $vista = new baseView();
@@ -43,7 +44,7 @@ class cUsers
     }
 
 
-    public function actionReminder(ServerRequestInterface $request) : ResponseInterface
+    public function actionReminder(ServerRequestInterface $request): ResponseInterface
     {
         $user = new mUser();
         $vista = new baseView();
@@ -62,7 +63,7 @@ class cUsers
     }
 
 
-    public function actionRegister(ServerRequestInterface $request) : ResponseInterface
+    public function actionRegister(ServerRequestInterface $request): ResponseInterface
     {
 
         $user = new mUser();

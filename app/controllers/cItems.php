@@ -1,4 +1,5 @@
 <?php
+
 namespace WebApp\controllers;
 
 use Laminas\Diactoros\Response;
@@ -16,7 +17,7 @@ session_start();
 class cItems
 {
 
-    public function actionListItems() : ResponseInterface
+    public function actionListItems(): ResponseInterface
     {
         $response = new Response();
 
@@ -40,7 +41,7 @@ class cItems
     }
 
 
-    public function actionAddItems(ServerRequestInterface $request) : ResponseInterface
+    public function actionAddItems(ServerRequestInterface $request): ResponseInterface
     {
         $response = new Response();
 

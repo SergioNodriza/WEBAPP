@@ -15,11 +15,24 @@ GET http://localhost:8080/users/login
 ###
 
 POST http://localhost:8080/users/login
-Content-Type: multipart/form-data; boundary=boundary
+Content-Type: multipart/form-data; boundary=WebAppBoundary
 
---boundary
-Content-Disposition: form-data; name="first";
-usuario=usuH&password=123
+--WebAppBoundary
+Content-Disposition: form-data; name="usuario"
+
+"usuH"
+--WebAppBoundary--
+
+--WebAppBoundary
+Content-Disposition: form-data; name="password"
+
+"123"
+--WebAppBoundary--
 
 ###
+POST http://localhost:8080/users/login
+Content-Type: application/x-www-form-urlencoded
 
+usuario=usuH&content=new-element
+
+###

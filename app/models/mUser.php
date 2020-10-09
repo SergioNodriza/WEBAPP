@@ -1,4 +1,5 @@
 <?php
+
 namespace WebApp\models;
 
 use WebApp\lib\views\baseView;
@@ -40,7 +41,9 @@ class mUser
     {
         session_start();
         session_destroy();
-        if ($bool){header('Location: /users/login');}
+        if ($bool) {
+            header('Location: /users/login');
+        }
     }
 
 

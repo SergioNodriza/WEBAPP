@@ -1,4 +1,5 @@
 <?php
+
 namespace WebApp\lib\views;
 
 /**

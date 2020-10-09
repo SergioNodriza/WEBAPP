@@ -1,6 +1,10 @@
 <?php
 namespace WebApp\helpers;
 
+/**
+ * Class request
+ * @package WebApp\helpers
+ */
 class request
 {
     /**

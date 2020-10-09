@@ -1,6 +1,7 @@
 <?php
 namespace WebApp\controllers;
 
+use Laminas\Diactoros\Response;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use WebApp\lib\views\baseView;
@@ -15,9 +16,9 @@ session_start();
 class cItems
 {
 
-    public function actionListItems(ServerRequestInterface $request) : ResponseInterface
+    public function actionListItems() : ResponseInterface
     {
-        $response = new \Laminas\Diactoros\Response();
+        $response = new Response();
 
         if (isset($_SESSION['nombre'])) {
             $item = new mItem();
@@ -41,7 +42,7 @@ class cItems
 
     public function actionAddItems(ServerRequestInterface $request) : ResponseInterface
     {
-        $response = new \Laminas\Diactoros\Response();
+        $response = new Response();
 
         if (isset($_SESSION['nombre'])) {
             if ($request->getMethod() == "POST") {

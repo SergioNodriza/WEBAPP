@@ -1,6 +1,7 @@
 <?php
 namespace WebApp\controllers;
 
+use Laminas\Diactoros\Response;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use WebApp\helpers\request;
@@ -20,7 +21,7 @@ class cUsers
     {
         $user = new mUser();
         $vista = new baseView();
-        $response = new \Laminas\Diactoros\Response();
+        $response = new Response();
 
         if ($request->getMethod() == "POST") {
             $usuario = (new request())->limpiarDatos($_POST['usuario']);
@@ -46,7 +47,7 @@ class cUsers
     {
         $user = new mUser();
         $vista = new baseView();
-        $response = new \Laminas\Diactoros\Response();
+        $response = new Response();
 
         if ($request->getMethod() == "POST") {
             $usuario = (new request())->limpiarDatos($_POST['usuario']);
@@ -66,7 +67,7 @@ class cUsers
 
         $user = new mUser();
         $vista = new baseView();
-        $response = new \Laminas\Diactoros\Response();
+        $response = new Response();
 
         if ($request->getMethod() == "POST") {
             $usuario = (new request())->limpiarDatos($_POST['usuario']);

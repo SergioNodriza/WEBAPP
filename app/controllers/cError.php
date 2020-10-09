@@ -1,8 +1,8 @@
 <?php
 
 namespace WebApp\controllers;
+use Laminas\Diactoros\Response;
 use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\ServerRequestInterface;
 use WebApp\lib\views\baseView;
 
 session_start();
@@ -13,9 +13,9 @@ session_start();
  */
 class cError
 {
-    public function actionError(ServerRequestInterface $request) : ResponseInterface
+    public function actionError() : ResponseInterface
     {
-        $response = new \Laminas\Diactoros\Response();
+        $response = new Response();
         $vista = new baseView();
         $error = array(
             0 => "Página no encontrada",

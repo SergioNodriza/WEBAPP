@@ -1,7 +1,4 @@
 <?php require 'cabecera.php'; ?>
-<style>
-    <?php include '../views/estilo.css'?>
-</style>
 
 <br><br><br><br><br><br><br><br><br>
 

@@ -1,6 +1,7 @@
 <?php
 
 use Laminas\Diactoros\ServerRequestFactory;
+use League\Route\RouteGroup;
 use League\Route\Router;
 
 require_once '../vendor/autoload.php';
@@ -10,7 +11,7 @@ $request = ServerRequestFactory::fromGlobals(
 );
 $router = new Router();
 
-$router->group("/users", function (\League\Route\RouteGroup $route) {
+$router->group("/users", function (RouteGroup $route) {
     $route->map("GET", "/login", "\WebApp\controllers\cUsers::actionLogIn");
     $route->map("POST", "/login", "\WebApp\controllers\cUsers::actionLogIn");
     $route->map("GET", "/logout", "\WebApp\controllers\cUsers::actionLogOut");
@@ -20,7 +21,7 @@ $router->group("/users", function (\League\Route\RouteGroup $route) {
     $route->map("POST", "/register", "\WebApp\controllers\cUsers::actionRegister");
 });
 
-$router->group("/items", function (\League\Route\RouteGroup $route) {
+$router->group("/items", function (RouteGroup $route) {
     $route->map("GET", "/list", "\WebApp\controllers\cItems::actionListItems");
     $route->map("POST", "/list", "\WebApp\controllers\cItems::actionListItems");
     $route->map("GET", "/add", "\WebApp\controllers\cItems::actionAddItems");

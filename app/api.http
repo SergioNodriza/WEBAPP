@@ -1,0 +1,20 @@
+http://localhost:8080/
+
+###
+
+http://localhost:8080/users/login
+
+###
+
+http://localhost:8080/items/list
+
+###
+
+GET http://localhost:8080/users/login
+
+###
+
+POST http://localhost:8080/users/login
+
+###
+

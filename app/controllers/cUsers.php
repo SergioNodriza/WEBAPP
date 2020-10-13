@@ -30,8 +30,8 @@ class cUsers
             $action = $user->doLogIn($usuario, $passw);
 
         } elseif ($request->getMethod() == "GET") {
-            $user->doLogOut(false);
-            $action = $vista->cargarView("../views/users/logIn.php");
+            if (isset($_SESSION['nombre'])) {header("Location: /items/list");}
+            else {$action = $vista->cargarView("../views/users/logIn.php");}
         }
         $response->getBody()->write($action);
         return $response;

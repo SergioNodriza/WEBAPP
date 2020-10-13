@@ -28,6 +28,7 @@ $router->group("/items", function (RouteGroup $route) {
     $route->map("POST", "/add", "\WebApp\controllers\cItems::actionAddItems");
 });
 
+$router->map("GET", "/", "\WebApp\controllers\cUsers::actionLogIn");
 $router->map("GET", "/error", "\WebApp\controllers\cError::actionError");
 
 
